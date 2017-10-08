@@ -61,11 +61,12 @@ Release Date: 10.08.17
 
 ##### New Components
     - controllers     
-        - N/A
+        - Fleet
     - model
         - Fleet_Model(recreated)
     - view
-        - N/A
+        - fleet
+        - plane
     
 ##### Updated Components
     - controllers
