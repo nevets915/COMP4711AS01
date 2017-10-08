@@ -6,7 +6,7 @@
  * Time: 11:34 AM
  */
 
-class Airplanes_Model extends CI_Model{
+class Airplane extends CI_Model{
 
     var $airplanes = array(
         '0' => array(

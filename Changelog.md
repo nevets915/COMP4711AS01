@@ -71,7 +71,11 @@ Release Date: 10.08.17
     - controllers
         - N/A
     - model
-        - N/A
+        - Fleet(renamed)
+        - Airline(renamed)
+        - Airplane(renamed)
+        - Airport(renamed)
+        - Region(renamed)
     - views
         - N/A
 
