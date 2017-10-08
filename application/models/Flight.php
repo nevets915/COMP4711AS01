@@ -14,84 +14,84 @@ class Flight extends CI_Model
         '0' => array(
             'id'            => "001",
             'Destination'   => "YAZ",
-            'Airplane'      => "Avanti II",
+            'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "8:00",
             'Arrival time'  => "8:50"
         ),
         '1' => array(
             'id'            => "002",
             'Destination'   => "YPB",
-            'Airplane'      => "Cessna",
+            'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "8:00",
             'Arrival time'  => "8:50"
         ),
         '2' => array(
             'id'            => "003",
             'Destination'   => "YCD",
-            'Airplane'      => "Avanti II",
+            'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "9:30",
             'Arrival time'  => "10:20"
         ),
         '3' => array(
             'id'            => "004",
             'Destination'   => "YCD",
-            'Airplane'      => "Cessna",
+            'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "9:30",
             'Arrival time'  => "10:20"
         ),
         '4' => array(
             'id'            => "005",
             'Destination'   => "YAZ",
-            'Airplane'      => "Avanti II",
+            'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "10:50",
             'Arrival time'  => "11:40"
         ),
         '5' => array(
             'id'            => "006",
             'Destination'   => "YPB",
-            'Airplane'      => "Cessna",
+            'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "10:50",
             'Arrival time'  => "11:40"
         ),
         '6' => array(
             'id'            => "007",
             'Destination'   => "YCD",
-            'Airplane'      => "Avanti II",
+            'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "12:10",
             'Arrival time'  => "13:00"
         ),
         '7' => array(
             'id'            => "008",
             'Destination'   => "YCD",
-            'Airplane'      => "Cessna",
+            'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "12:10",
             'Arrival time'  => "13:00"
         ),
         '8' => array(
             'id'            => "009",
             'Destination'   => "YQQ",
-            'Airplane'      => "Avanti II",
+            'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "13:30",
             'Arrival time'  => "14:20"
         ),
         '9' => array(
             'id'            => "010",
             'Destination'   => "YQQ",
-            'Airplane'      => "Cessna",
+            'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "13:30",
             'Arrival time'  => "14:20"
         ),
         '10' => array(
             'id'            => "011",
             'Destination'   => "YCD",
-            'Airplane'      => "Avanti II",
+            'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "14:50",
             'Arrival time'  => "15:40"
         ),
         '11' => array(
             'id'            => "012",
             'Destination'   => "YCD",
-            'Airplane'      => "Cessna",
+            'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "14:50",
             'Arrival time'  => "15:40"
         ),
