@@ -103,3 +103,11 @@ Release Date: 10.08.17
         - fleetpage view created
         - flightpage view created
         - template view fixed
+
+##### Added Flight.php to Models
+    - controllers
+        - N/A
+    - model
+        - Added flight.php with scheduled flights for each plane
+    - views
+        - N/A
