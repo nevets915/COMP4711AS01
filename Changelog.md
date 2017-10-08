@@ -2,8 +2,8 @@
 
 #####Team membership:  
 
-    - SK[Shawn(Dongwon) Kim] (Captaim)
-    - GL[George Lee] (Mate)
+    - SK[Shawn(Dongwon) Kim] (Captain)
+    - GL[Jia Qi Lee (NamBlue)] (Mate)
     - SM[Steven Ma] (Mate)
 
 Team conventions: Allman notation, markdown for changelog  
@@ -13,12 +13,12 @@ Changelog format: [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdo
 1. SK: Initialized the changelog.md 
 
 ## Version Log
-### Version 1.0 - SK
+### Version 1.0 - SK, GL
 Release Date: 10.06.17
 
 ##### New Components
     - controllers     
-        - N/A
+        - Info
     - model     
         - Fleet_Model
         - Flight_Model
