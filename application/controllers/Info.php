@@ -21,7 +21,7 @@ class Info extends CI_Controller
      */
     public function fleet()
     {
-        $record = $this->fleet->all();
+        $record = $this->fleet_model->all();
         return json_encode($record);
     }
     

@@ -51,8 +51,8 @@ if (!defined('APPPATH'))
     <nav>
       <ul id="menu">
         <li id="menu_active"><a href="/"><span><span>Home</span></span></a></li>
-        <li><a href="/flightspage"><span><span>Flights</span></span></a></li>
-        <li><a href="/fleetpage"><span><span>Fleets</span></span></a></li>
+        <li><a href="/flights"><span><span>Flights</span></span></a></li>
+        <li><a href="/fleet"><span><span>Fleets</span></span></a></li>
         <li class="end"><a href="/aboutpage"><span><span>About</span></span></a></li>
       </ul>
     </nav>
