@@ -5,7 +5,7 @@
  * Date: 2017-10-07
  * Time: 11:34 AM
  */
-class Airports_Model extends CI_Model{
+class Airport extends CI_Model{
 
         var $airports = array (
                     0 => array(
