@@ -37,7 +37,7 @@ if (!defined('APPPATH'))
 <body>
     <header>
     <div class="wrapper">
-      <h1><a href="index.html" id="logo">AirLines</a></h1>
+      <h1><a href="" id="logo">AirLines</a></h1>
       <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
       <nav id="top_nav">
         <ul>
