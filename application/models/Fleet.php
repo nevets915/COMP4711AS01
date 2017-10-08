@@ -12,7 +12,7 @@ class Fleet extends CI_Model
 
     var $fleets = array(
         '0' => array(
-            'id'            => "avanti",
+            'id'            => "avanti_001",
             'manufacturer'  => "Piaggo",
             'model'         => "Avanti II",
             'seats'         => "8",
@@ -22,7 +22,7 @@ class Fleet extends CI_Model
             'hourly'        => "977"
         ),
         '1' => array(
-            'id' => "caravan",
+            'id' => "caravan_001",
             'manufacturer' => "Cessna",
             'model' => "Grand Caravan EX",
             'seats' => "14",
