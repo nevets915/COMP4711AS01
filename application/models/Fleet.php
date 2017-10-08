@@ -7,7 +7,7 @@
  *
  * @author jim
  */
-class Fleet_Model extends CI_Model
+class Fleet extends CI_Model
 {
 
     var $fleets = array(

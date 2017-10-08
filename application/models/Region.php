@@ -6,7 +6,7 @@
  * Time: 2:16 PM
  */
 
-class Regions_Model extends CI_Model{
+class Region extends CI_Model{
 
     var $regions = array(
           0 =>
