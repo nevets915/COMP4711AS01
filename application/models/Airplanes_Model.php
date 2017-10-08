@@ -20,7 +20,7 @@ class Airplanes_Model extends CI_Model{
             'takeoff'       => "994",
             'hourly'        => "977"
         ),
-        '0' => array(
+        '1' => array(
             'id' =>"baron",
             'manufacturer' =>"Beechcraft",
             'model' =>"Baron",
@@ -31,7 +31,7 @@ class Airplanes_Model extends CI_Model{
             'takeoff' =>"701",
             'hourly' =>"340"
         ),
-        '1' => array(
+        '2' => array(
             'id' => "caravan",
             'manufacturer' => "Cessna",
             'model' => "Grand Caravan EX",
@@ -42,7 +42,7 @@ class Airplanes_Model extends CI_Model{
             'takeoff' => "660",
             'hourly' => "389"
         ),
-        '2' => array(
+        '3' => array(
             'id' => "citation",
             'manufacturer' => "Cessna",
             'model' => "Citation M2",
@@ -53,7 +53,7 @@ class Airplanes_Model extends CI_Model{
             'takeoff' => "978",
             'hourly' => "1122"
         ),
-        '3' => array(
+        '4' => array(
             'id' => "kingair",
             'manufacturer' => "Beechcraft",
             'model' => "King Air C90",
@@ -64,7 +64,7 @@ class Airplanes_Model extends CI_Model{
             'takeoff' => "1402",
             'hourly' => "990"
         ),
-        '4' => array(
+        '5' => array(
             'id' => "mustang",
             'manufacturer' => "Cessna",
             'model' => "Citation Mustang",
@@ -75,7 +75,7 @@ class Airplanes_Model extends CI_Model{
             'takeoff' => "950",
             'hourly' => "1015"
         ),
-        '5' => array(
+        '6' => array(
             'id' => "pc12ng",
             'manufacturer' => "Pilatus",
             'model' => "PC-12 NG",
@@ -86,7 +86,7 @@ class Airplanes_Model extends CI_Model{
             'takeoff' => "450",
             'hourly' => "727"
         ),
-        '6' => array(
+        '7' => array(
             'id' => "phenom100",
             'manufacturer' => "Embraer",
             'model' => "Phenom 100",
