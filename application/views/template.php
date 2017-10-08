@@ -34,14 +34,16 @@ if (!defined('APPPATH'))
     <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
     <![endif]-->
 </head>    
-<body>
-    <header>
+<body id="page1">
+<div class="main">
+  <!--header -->
+  <header>
     <div class="wrapper">
-      <h1><a href="" id="logo">AirLines</a></h1>
+      <h1><a href="/" id="logo">AirLines</a></h1>
       <span id="slogan">Fast, Frequent &amp; Safe Flights</span>
       <nav id="top_nav">
         <ul>
-          <li><a href="index.html" class="nav1">Home</a></li>
+          <li><a href="/" class="nav1">Home</a></li>
           <li><a href="#" class="nav2">Sitemap</a></li>
           <li><a href="contacts.html" class="nav3">Contact</a></li>
         </ul>
@@ -49,15 +51,14 @@ if (!defined('APPPATH'))
     </div>
     <nav>
       <ul id="menu">
-        <li id="menu_active"><a href="index.html"><span><span>About</span></span></a></li>
-        <li><a href="offers.html"><span><span>Offers</span></span></a></li>
-        <li><a href="book.html"><span><span>Book</span></span></a></li>
-        <li><a href="services.html"><span><span>Services</span></span></a></li>
-        <li><a href="safety.html"><span><span>Safety</span></span></a></li>
-        <li class="end"><a href="contacts.html"><span><span>Contacts</span></span></a></li>
+        <li id="menu_active"><a href="/"><span><span>Home</span></span></a></li>
+        <li><a href="/flightspage"><span><span>Flights</span></span></a></li>
+        <li><a href="/fleetpage"><span><span>Fleets</span></span></a></li>
+        <li><a href="/aboutpage"><span><span>About</span></span></a></li>
+        <li class="end"><a href="/contacts"><span><span>Contacts</span></span></a></li>
       </ul>
     </nav>
-    </header>
+  </header>
     
     <section id="content">
         {content}
@@ -76,5 +77,9 @@ if (!defined('APPPATH'))
           <div class="links">Copyright &copy; <a href="#">Domain Name</a> All Rights Reserved</div>
         </div>
     </footer>
+  </div>
+    
+<script type="text/javascript" src="assets/js/cufon.js"></script>
+<script type="text/javascript" src="assets/js/slideshow.js"></script>
 </body>
 </html>
