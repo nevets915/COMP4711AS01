@@ -90,3 +90,15 @@ Release Date: 10.08.17
         - fleetpage view created
         - flightpage view created
         - template view fixed
+
+##### Redid previous fixed template
+    - controllers
+        - Specified assumed naming convention for config file
+    - model
+        - N/A
+    - views
+        - homepage view created and fixed
+        - aboutpage view created
+        - fleetpage view created
+        - flightpage view created
+        - template view fixed
