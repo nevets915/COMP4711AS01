@@ -2,8 +2,8 @@
 
 #####Team membership:  
 
-    - SK[Shawn(Dongwon) Kim] (Captaim)
-    - GL[George Lee] (Mate)
+    - SK[Shawn(Dongwon) Kim] (Captain)
+    - GL[Jia Qi Lee (NamBlue)] (Mate)
     - SM[Steven Ma] (Mate)
 
 Team conventions: Allman notation, markdown for changelog  
@@ -18,7 +18,7 @@ Release Date: 10.06.17
 
 ##### New Components
     - controllers     
-        - N/A
+        - Info
     - model
         - Flight_Model
         - Fleet_Model
