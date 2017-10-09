@@ -121,7 +121,7 @@
 <div class="wrapper pad1">
   <article class="col1">
     <div class="box1">
-      <h2 class="top">Offers of the Week from UK</h2>
+      <h2 class="top">Our Current Airline Info:</h2>
       <div class="pad"> <strong>Fleet Count</strong><br>
         <ul class="pad_bot1 list1">
             {fleet_count}
