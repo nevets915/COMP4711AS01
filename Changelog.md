@@ -62,11 +62,14 @@ Release Date: 10.08.17
 ##### New Components
     - controllers     
         - Fleet
+        - Flights
     - model
         - Fleet_Model(recreated)
+        - Flights_Model
     - view
         - fleet
         - plane
+        - flights
     
 ##### Updated Components
     - controllers
@@ -78,36 +81,8 @@ Release Date: 10.08.17
         - Airport(renamed)
         - Region(renamed)
     - views
-        - N/A
-
-##### Fixed template
-    - controllers
-        - Specified assumed naming convention for config file
-    - model
-        - N/A
-    - views
         - homepage view created and fixed
         - aboutpage view created
         - fleetpage view created
         - flightpage view created
         - template view fixed
-
-##### Redid previous fixed template
-    - controllers
-        - Specified assumed naming convention for config file
-    - model
-        - N/A
-    - views
-        - homepage view created and fixed
-        - aboutpage view created
-        - fleetpage view created
-        - flightpage view created
-        - template view fixed
-
-##### Added Flight.php to Models
-    - controllers
-        - N/A
-    - model
-        - Added flight.php with scheduled flights for each plane
-    - views
-        - N/A
