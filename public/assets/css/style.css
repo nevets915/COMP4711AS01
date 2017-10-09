@@ -1058,3 +1058,16 @@ a.jqTransformSelectOpen {
 	margin:0;
 	float:left
 }
+table {
+    border: 2px solid black;
+    text-align: center;
+    width: 100%;
+}
+
+th{
+    border: 2px solid black;
+}
+
+tr {
+    border: 2px solid black;
+}
