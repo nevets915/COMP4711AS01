@@ -14,7 +14,8 @@ class Flight extends CI_Model
         '0' => array(
             'id'            => "001",
             'Destination'   => "YAZ",
-            'Airport'       => "Tofino/Long Beach Airport",
+            'Arrival Airport'       => "Tofino/Long Beach Airport",
+            'Departure Airport'       => "Nanaimo Airport",
             'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "8:00",
             'Arrival time'  => "8:50"
@@ -22,7 +23,8 @@ class Flight extends CI_Model
         '1' => array(
             'id'            => "002",
             'Destination'   => "YPB",
-            'Airport'       => "Port Alberni (Alberni Valley Regional) Airport",
+            'Arrival Airport'       => "Port Alberni (Alberni Valley Regional) Airport",
+            'Departure Airport'       => "Nanaimo Airport",
             'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "8:00",
             'Arrival time'  => "8:50"
@@ -30,7 +32,8 @@ class Flight extends CI_Model
         '2' => array(
             'id'            => "003",
             'Destination'   => "YCD",
-            'Airport'       => "Nanaimo Airport",
+            'Arrival Airport'       => "Nanaimo Airport",
+            'Departure Airport'       => "Tofino/Long Beach Airport",
             'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "9:30",
             'Arrival time'  => "10:20"
@@ -38,7 +41,8 @@ class Flight extends CI_Model
         '3' => array(
             'id'            => "004",
             'Destination'   => "YCD",
-            'Airport'       => "Nanaimo Airport",
+            'Arrival Airport'       => "Nanaimo Airport",
+            'Departure Airport'       => "Port Alberni (Alberni Valley Regional) Airport",
             'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "9:30",
             'Arrival time'  => "10:20"
@@ -46,7 +50,8 @@ class Flight extends CI_Model
         '4' => array(
             'id'            => "005",
             'Destination'   => "YAZ",
-            'Airport'       => "Tofino/Long Beach Airport",
+            'Arrival Airport'       => "Tofino/Long Beach Airport",
+            'Departure Airport'       => "Nanaimo Airport",
             'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "10:50",
             'Arrival time'  => "11:40"
@@ -54,7 +59,8 @@ class Flight extends CI_Model
         '5' => array(
             'id'            => "006",
             'Destination'   => "YPB",
-            'Airport'       => "Port Alberni (Alberni Valley Regional) Airport",
+            'Arrival Airport'       => "Port Alberni (Alberni Valley Regional) Airport",
+            'Departure Airport'       => "Nanaimo Airport",
             'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "10:50",
             'Arrival time'  => "11:40"
@@ -62,7 +68,8 @@ class Flight extends CI_Model
         '6' => array(
             'id'            => "007",
             'Destination'   => "YCD",
-            'Airport'       => "Nanaimo Airport",
+            'Arrival Airport'       => "Nanaimo Airport",
+            'Departure Airport'       => "Tofino/Long Beach Airport",
             'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "12:10",
             'Arrival time'  => "13:00"
@@ -70,7 +77,8 @@ class Flight extends CI_Model
         '7' => array(
             'id'            => "008",
             'Destination'   => "YCD",
-            'Airport'       => "Nanaimo Airport",
+            'Arrival Airport'       => "Nanaimo Airport",
+            'Departure Airport'       => "Port Alberni (Alberni Valley Regional) Airport",
             'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "12:10",
             'Arrival time'  => "13:00"
@@ -78,7 +86,8 @@ class Flight extends CI_Model
         '8' => array(
             'id'            => "009",
             'Destination'   => "YQQ",
-            'Airport'       => "CFB Comox (Comox Airport)",
+            'Arrival Airport'       => "CFB Comox (Comox Airport)",
+            'Departure Airport'       => "Nanaimo Airport",
             'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "13:30",
             'Arrival time'  => "14:20"
@@ -86,7 +95,8 @@ class Flight extends CI_Model
         '9' => array(
             'id'            => "010",
             'Destination'   => "YQQ",
-            'Airport'       => "CFB Comox (Comox Airport)",
+            'Arrival Airport'       => "CFB Comox (Comox Airport)",
+            'Departure Airport'       => "Nanaimo Airport",
             'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "13:30",
             'Arrival time'  => "14:20"
@@ -94,7 +104,8 @@ class Flight extends CI_Model
         '10' => array(
             'id'            => "011",
             'Destination'   => "YCD",
-            'Airport'       => "Nanaimo Airport",
+            'Arrival Airport'       => "Nanaimo Airport",
+            'Departure Airport'       => "CFB Comox (Comox Airport)",
             'Plane ID'      => "BB_avanti_001",
             'Departure time'   => "14:50",
             'Arrival time'  => "15:40"
@@ -102,7 +113,8 @@ class Flight extends CI_Model
         '11' => array(
             'id'            => "012",
             'Destination'   => "YCD",
-            'Airport'       => "Nanaimo Airport",
+            'Arrival Airport'       => "Nanaimo Airport",
+            'Departure Airport'       => "CFB Comox (Comox Airport)",
             'Plane ID'      => "BB_caravan_001",
             'Departure time'   => "14:50",
             'Arrival time'  => "15:40"
