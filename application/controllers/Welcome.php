@@ -14,9 +14,17 @@ class Welcome extends Application
 	 */
 	public function index()
 	{
+
+        $fleets =  $this -> fleet_model -> all();
+        $flights =  $this -> flights_model -> all();
+
+        $fleet_count = count($fleets);
+        $flight_count = count($flights);
+
 		// this is the view we want shown
 		$this->data['pagebody'] = 'homepage';
-
+        $this->data['fleet_count'] = $fleet_count;
+        $this->data['flight_count'] = $flight_count;
 		$this->render();
 	}
 }
