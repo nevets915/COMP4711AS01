@@ -44,7 +44,6 @@ if (!defined('APPPATH'))
       <nav id="top_nav">
         <ul>
           <li><a href="/" class="nav1">Home</a></li>
-          <li><a href="contacts.html" class="nav3">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -52,8 +51,7 @@ if (!defined('APPPATH'))
       <ul id="menu">
         <li id="menu_active"><a href="/"><span><span>Home</span></span></a></li>
         <li><a href="/flights"><span><span>Flights</span></span></a></li>
-        <li><a href="/fleet"><span><span>Fleets</span></span></a></li>
-        <li class="end"><a href="/aboutpage"><span><span>About</span></span></a></li>
+        <li class="end"><a href="/fleet"><span><span>Fleets</span></span></a></li>
       </ul>
     </nav>
   </header>
