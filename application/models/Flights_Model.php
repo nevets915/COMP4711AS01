@@ -7,9 +7,8 @@
  *
  * @author jim
  */
-class Flight extends CI_Model
+class Flights_Model extends CI_Model
 {
-
     var $flights = array(
         '0' => array(
             'id'            => "001",
@@ -127,20 +126,20 @@ class Flight extends CI_Model
         parent::__construct();
 
         // inject each "record" key into the record itself, for ease of presentation
-        foreach ($this-> fleets as $key => $record)
+        foreach ($this-> flights as $key => $record)
         {
             $record['key'] = $key;
-            $this->fleets[$key] = $record;
+            $this->flights[$key] = $record;
         }
     }
 
     // retrieve a single quote, null if not found
     public function get($which) {
-        return !isset($this->fleets[$which]) ? null : $this->fleets[$which];
+        return !isset($this->flights[$which]) ? null : $this->flights[$which];
     }
 
     // retrieve all of the quotes
     public function all(){
-        return $this->fleets;
+        return $this->flights;
     }
 }
