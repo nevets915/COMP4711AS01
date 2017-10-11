@@ -12,8 +12,8 @@
             <tr title="Plane: {Plane ID}
                 Depart: {Departure time} Arrive: {Arrival time}">
                 <td>{id}</td>
-                <td>{Departure Airport}</td>
-                <td>{Arrival Airport}</td>
+                <td>{DepartureAirport}</td>
+                <td>{ArrivalAirport}</td>
             </tr>
             {/flights}
         </tbody>
