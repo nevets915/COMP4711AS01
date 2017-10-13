@@ -86,3 +86,9 @@ Release Date: 10.08.17
         - fleetpage view created
         - flightpage view created
         - template view fixed
+
+### Version 1.2.1 - SK
+Release Date: 10.11.17
+    - bugfixes
+        - Model naming convention changed
+        - Model key naming convention changed
