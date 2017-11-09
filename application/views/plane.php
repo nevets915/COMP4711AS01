@@ -1,4 +1,4 @@
-<div>
+<div class="tables">
     <table>        
         <thead>
             <tr>

@@ -9,7 +9,7 @@
         <tbody>
             {fleet}
                 <tr>
-                    <td><a href="fleet/show/{key}">{id}</a></td>
+                    <td><a href="fleet/show/{id}">{id}</a></td>
                     <td>{model}</td>
                 </tr>
             {/fleet}
