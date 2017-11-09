@@ -139,7 +139,7 @@
 <!--      </div>-->
     </div>
   </article>
-  <article class="col2">
+  <div class="col2">
     <h3>About Our Airlines</h3>
     <div class="wrapper">
       <article class="cols">
@@ -157,4 +157,27 @@
       </article>
     </div>
 <!--    <a href="#" class="button1"><strong>Read More</strong></a> </article>-->
+    </div>
+</div>
+
+<div class="wrapper pad1">
+    <div class="col1">
+        <h3>Dashboard</h3>
+        <table class="table">
+            <tr>
+                <th>Number of Flight</th>
+                <th>b</th>
+                <th>c</th>
+                <th>d</th>
+            </tr>
+            <tr>
+                <td>{a}</td>
+                <td>{b}</td>
+                <td>{c}</td>
+                <td>{d}</td>
+            </tr>
+        </table>
+    </div>
+
+
 </div>

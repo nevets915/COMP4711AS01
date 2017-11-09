@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+//defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends Application
 {
@@ -43,6 +43,25 @@ class Welcome extends Application
         $this->data['flight_count'] = $flight_count;
         $this->data['destinations'] = $destinations;
         $this->data['base_airport'] = $base;
-		$this->render();
+//        $this->data['dashboard_area'] = $this -> getCountOfFlight();
+        $this->render();
+
 	}
+
+	// dashboard
+
+    function getCountOfFlight(){
+        $count = 0;
+
+	    foreach($this -> flights_model -> all() as $flighgt)
+	        $count++;
+
+        return $count;
+    }
+
+    function getNumberOfFlightsTotal(){
+
+    }
+
+
 }
