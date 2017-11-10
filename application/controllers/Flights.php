@@ -23,6 +23,10 @@ class Flights extends Application
 	 */
 	public function index()
 	{
+            $role = $this->session->userdata('userrole');
+            $this->data['pagetitle'] = 'Viewing as ('. $role . ')';
+            $this->page();
+            
             // this is the view we want shown
             $this->data['pagebody'] = 'flights';
 
@@ -34,4 +38,15 @@ class Flights extends Application
 
             $this->render();
 	}
+        
+        function page()
+        {
+            $role = $this->session->userdata('userrole');
+             $role = ROLE_ADMIN;
+            if ($role == ROLE_ADMIN) 
+            {
+                $this->data['pagination'] = $this->parser->parse('flightadd',[], true);
+            }
+            
+        }
 }
