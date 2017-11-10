@@ -13,6 +13,17 @@
  */
 class Plane extends CI_Model
 {
+    public $id;
+    public $manufacturer;
+    public $model;
+    public $price;
+    public $seats;
+    public $reach;
+    public $cruise;
+    public $takeoff;
+    public $hourly;
+    
+    
     public function __construct()
     {
             parent::__construct();

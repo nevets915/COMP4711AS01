@@ -22,7 +22,7 @@ class Wacky
     public function airlines()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/airlines/');
-        return json_decode($response);
+        return json_decode($response, TRUE);
     }
     
     /*
@@ -33,7 +33,7 @@ class Wacky
     public function airports()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/airports/');
-        return json_decode($response);
+        return json_decode($response, TRUE);
     }
     
     /*
@@ -44,7 +44,7 @@ class Wacky
     public function airplanes()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/airplanes/');
-        return json_decode($response);
+        return json_decode($response, TRUE);
     }
     
     /*
@@ -55,6 +55,6 @@ class Wacky
     public function regions()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/regions/');
-        return json_decode($response);
+        return json_decode($response, TRUE);
     }    
 }
