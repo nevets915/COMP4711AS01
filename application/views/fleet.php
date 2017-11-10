@@ -1,3 +1,5 @@
+{pagetitle}
+
 <div class="tables">
     <table>        
         <thead>
@@ -16,3 +18,4 @@
         </tbody>
     </table>
 </div>
+{pagination}

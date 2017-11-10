@@ -29,6 +29,10 @@ class Fleet extends Application
 	 */
 	public function index()
 	{
+            $role = $this->session->userdata('userrole');
+            $this->data['pagetitle'] = 'Viewing as ('. $role . ')';
+            $this->page();
+            
             // this is the view we want shown
             $this->data['pagebody'] = 'fleet';
 
@@ -56,5 +60,20 @@ class Fleet extends Application
             $this->data = array_merge($this->data, (array) $source);
 
             $this->render();
+        }
+        
+        // Extract & handle a page of items, defaulting to the beginning
+        function page()
+        {
+            $role = $this->session->userdata('userrole');
+            if ($role == ROLE_ADMIN) 
+            {
+                $this->data['pagination'] = $this->parser->parse('fleetadd',[], true);
+            }
+            else
+            {
+                $this->data['pagination'] = "";
+            }
+
         }
 }
