@@ -13,6 +13,14 @@
  */
 class Flight extends CI_Model
 {
+    public $id;
+    public $Destination;
+    public $ArrivalAirport;
+    public $DepartureAirport;
+    public $PlaneID;
+    public $DepartureTime;
+    public $ArrivalTime;
+    
     public function __construct()
     {
             parent::__construct();
