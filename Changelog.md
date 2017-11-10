@@ -92,3 +92,34 @@ Release Date: 10.11.17
     - bugfixes
         - Model naming convention changed
         - Model key naming convention changed
+
+### Version 2.0.0 - SK
+Release Date: 11.12.17
+
+##### New Components
+    - controllers     
+        - Fleet
+        - Flights
+    - model
+        - Fleet_Model(recreated)
+        - Flights_Model
+    - view
+        - fleet
+        - plane
+        - flights
+    
+##### Updated Components
+    - controllers
+        - Roles added
+    - model
+        - Fleet(renamed)
+        - Airline(renamed)
+        - Airplane(renamed)
+        - Airport(renamed)
+        - Region(renamed)
+    - views
+        - fleetadd added
+	- flightadd added
+    - Other
+	- Added session and parsedown to autoload libraries
+	- Added Admin and Guest constants
