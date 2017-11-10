@@ -67,9 +67,13 @@ class Fleet extends Application
         {
             $role = $this->session->userdata('userrole');
             $role = ROLE_ADMIN;
-            if ($role == ROLE_ADMIN) 
+            if ($role != ROLE_ADMIN) 
             {
                 $this->data['pagination'] = $this->parser->parse('fleetadd',[], true);
+            }
+            else
+            {
+                $this->data['pagination'] = "";
             }
 
         }

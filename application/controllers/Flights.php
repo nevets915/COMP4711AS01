@@ -47,6 +47,10 @@ class Flights extends Application
             {
                 $this->data['pagination'] = $this->parser->parse('flightadd',[], true);
             }
+            else
+            {
+                $this->data['pagination'] = "";
+            }
             
         }
 }
