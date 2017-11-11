@@ -92,7 +92,7 @@ class Flights extends Application
                 'fdestination'  => form_label('Destination') . form_input('Destination', $flight->Destination),
                 'farrivalairport'  => form_label('Arrival Airport') . form_input('ArrivalAirport', $flight->ArrivalAirport),
                 'fdeparteairport'  => form_label('Departure Airport') . form_input('DepartureAirport', $flight->DepartureAirport),
-                'fplaneid'  => form_label('Plane ID') . form_input('PlaneID', $flight->PlaneID),
+                'fplaneid'  => form_label('Plane ID') . form_input('PlaneId', $flight->PlaneID),
                 'fdeparturetime'  => form_label('Departure Time') . form_input('DepartureTime', $flight->DepartureTime),
                 'farrivaltime'  => form_label('Arrival Time') . form_input('ArrivalTime', $flight->ArrivalTime),
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
@@ -106,6 +106,10 @@ class Flights extends Application
         // handle form submission
         public function submit()
         {
+            // setup for validation
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->flights_model->rules());
+            
             // retrieve & update data transfer buffer
             $flight = (array) $this->session->userdata('flight');
             $flight = array_merge($flight, $this->input->post());
@@ -113,15 +117,22 @@ class Flights extends Application
             $flight = (object) $flight;  // convert back to object
             $this->session->set_userdata('flight', (object) $flight);
 
-            if (empty($flight->id))
+            // validate away
+            if ($this->form_validation->run())
             {
-                $flight->id = $this->flights_model->highest() + 1;
-                $this->flights_model->add($flight);
-                $this->alert('Flight ' . $flight->id . ' added', 'success');
+                if (empty($flight->id))
+                {
+                    $flight->id = $this->flights_model->highest() + 1;
+                    $this->flights_model->add($flight);
+                    $this->alert('Flight ' . $flight->id . ' added', 'success');
+                } else
+                {
+                    $this->flights_model->update($flight);
+                    $this->alert('Flight ' . $flight->id . ' updated', 'success');
+                }
             } else
             {
-                $this->flights_model->update($flight);
-                $this->alert('Flight ' . $flight->id . ' updated', 'success');
+                 $this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
             }
                
             $this->showit();

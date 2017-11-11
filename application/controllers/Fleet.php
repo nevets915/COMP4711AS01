@@ -111,14 +111,14 @@ class Fleet extends Application
             }
 
             $fields = array(
-                'fmanufacturer'  => form_label('Manufacturer') . form_input('Manufacturer', $fleet->Manufacturer),
-                'fmodel'  => form_label('Model') . form_input('Model', $fleet->Model),
-                'fseats'  => form_label('Seats') . form_input('Seats', $fleet->Seats),
-                'freach'  => form_label('Reach') . form_input('Reach', $fleet->Reach),
-                'fcruise'  => form_label('Cruise') . form_input('Cruise', $fleet->Cruise),
-                'ftakeoff'  => form_label('Takeoff') . form_input('Takeoff', $fleet->Takeoff),
-                'fhourly'  => form_label('Hourly') . form_input('Hourly', $fleet->Hourly),
-                'zsubmit'    => form_submit('submit', $submitButtonLabel),
+                'fmanufacturer'  => form_label('Manufacturer') . form_input('manufacturer', $fleet->manufacturer),
+                'fmodel'  => form_label('Model') . form_input('model', $fleet->model),
+                'fseats'  => form_label('Seats') . form_input('seats', $fleet->seats),
+                'freach'  => form_label('Reach') . form_input('reach', $fleet->reach),
+                'fcruise'  => form_label('Cruise') . form_input('cruise', $fleet->cruise),
+                'ftakeoff'  => form_label('Takeoff') . form_input('takeoff', $fleet->takeoff),
+                'fhourly'  => form_label('Hourly') . form_input('hourly', $fleet->hourly),
+                'zsubmit'    => form_submit('Submit', $submitButtonLabel),
             );
             $this->data = array_merge($this->data, $fields);
 
@@ -129,6 +129,9 @@ class Fleet extends Application
         // handle form submission
         public function submit()
         {
+            // setup for validation
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->fleet_model->rules());
 
             // retrieve & update data transfer buffer
             $fleet = (array) $this->session->userdata('fleet');
@@ -137,20 +140,26 @@ class Fleet extends Application
             $fleet = (object) $fleet;  // convert back to object
             $this->session->set_userdata('fleet', (object) $fleet);
 
-            if (empty($fleet->id))
+            // validate away
+            if ($this->form_validation->run())
             {
-                $fleet->id = $this->fleet_model->highest() + 1;
-                $this->fleet_model->add($fleet);
-                $this->alert('Fleet ' . $fleet->id . ' added', 'success');
-            } else
+                if (empty($fleet->id))
+                {
+                    $fleet->id = $this->fleet_model->highest() + 1;
+                    $this->fleet_model->add($fleet);
+                    $this->alert('Fleet ' . $fleet->id . ' added', 'success');
+                } else
+                {
+                    $this->fleet_model->update($fleet);
+                    $this->alert('Fleet ' . $fleet->id . ' updated', 'success');
+                }
+
+                $this->showit();
+            }else
             {
-                $this->fleet_model->update($fleet);
-                $this->alert('Fleet ' . $fleet->id . ' updated', 'success');
+                $this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
             }
-               
-            $this->showit();
         }
-        
         
         // build a suitable error mesage
         private function alert($message) {
