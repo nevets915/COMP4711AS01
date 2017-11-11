@@ -1,11 +1,9 @@
-<h1>Task # {id}</h1>
+<h1>Flight ID: {id}</h1>
 <form role="form" action="/flights/submit" method="post">
-    {fid}
+    {fdestination}
     {farrivalairport}
-    <br/>
     {fdeparteairport}
     {fplaneid}
-    <br/>
     {fdeparturetime}
     {farrivaltime}
     <br/>

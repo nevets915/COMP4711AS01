@@ -107,11 +107,10 @@ class Fleet extends Application
             // Check to see if its new or editing
             if (empty($fleet->id))
             {
-                $submitButtonLabel = 'Create new fleet';
+                $submitButtonLabel = 'Create new plane';
             }
 
             $fields = array(
-                'fid'      => form_label('Fleet Id') . form_input('id', $fleet->id),
                 'fmanufacturer'  => form_label('Manufacturer') . form_input('manufacturer', $fleet->manufacturer),
                 'fmodel'  => form_label('model') . form_input('model', $fleet->model),
                 'fseats'  => form_label('seats') . form_input('seats', $fleet->seats),
@@ -141,11 +140,11 @@ class Fleet extends Application
             {
                 $fleet->id = $this->fleet_model->highest() + 1;
                 $this->fleet_model->add($fleet);
-                $this->alert('Task ' . $fleet->id . ' added', 'success');
+                $this->alert('Fleet ' . $fleet->id . ' added', 'success');
             } else
             {
                 $this->fleet_model->update($fleet);
-                $this->alert('Task ' . $fleet->id . ' updated', 'success');
+                $this->alert('Fleet ' . $fleet->id . ' updated', 'success');
             }
                
             $this->showit();

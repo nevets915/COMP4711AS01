@@ -31,11 +31,11 @@ class Welcome extends Application
                         '3' => array('dest' => $airline['dest3'])
                     );
                 }
-        }
+            }
 
 
-	// this is the view we want shown
-        $this->data['pagebody'] = 'homepage';
+            // this is the view we want shown
+            $this->data['pagebody'] = 'homepage';
             $this->data['fleet_count'] = $fleet_count;
             $this->data['flight_count'] = $flight_count;
             $this->data['destinations'] = $destinations;
@@ -44,8 +44,6 @@ class Welcome extends Application
             $this->render();
 
 	}
-
-	// dashboard
 
     function getCountOfFlight(){
         $count = 0;

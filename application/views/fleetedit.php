@@ -1,14 +1,10 @@
-<h1>Task # {id}</h1>
+<h1>Fleet ID: {id}</h1>
 <form role="form" action="/fleet/submit" method="post">
-    {fid}
     {fmanufacturer}
-    <br/>
     {fmodel}
     {fseats}
-    <br/>
     {freach}
     {fcruise}
-    <br/>
     {ftakeoff}
     {fhourly}
     <br/>

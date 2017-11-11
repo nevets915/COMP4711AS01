@@ -78,8 +78,10 @@ class Flights extends Application
 
             // if no errors, pass an empty message
             if ( ! isset($this->data['error']))
+            {
                 $this->data['error'] = '';
-
+            }
+            
             // Check to see if its new or editing
             if (empty($flight->id))
             {
@@ -87,7 +89,7 @@ class Flights extends Application
             }
 
             $fields = array(
-                'fid'      => form_label('Flight Id') . form_input('id', $flight->id),
+                'fdestination'  => form_label('Destination') . form_input('destination', $flight->Destination),
                 'farrivalairport'  => form_label('Arrival Airport') . form_input('arrivalairport', $flight->ArrivalAirport),
                 'fdeparteairport'  => form_label('Departure Airport') . form_input('departureairport', $flight->DepartureAirport),
                 'fplaneid'  => form_label('Plane ID') . form_input('planeid', $flight->PlaneID),
@@ -104,7 +106,6 @@ class Flights extends Application
         // handle form submission
         public function submit()
         {
-
             // retrieve & update data transfer buffer
             $flight = (array) $this->session->userdata('flight');
             $flight = array_merge($flight, $this->input->post());
@@ -115,11 +116,11 @@ class Flights extends Application
             {
                 $flight->id = $this->flights_model->highest() + 1;
                 $this->flights_model->add($flight);
-                $this->alert('Task ' . $flight->id . ' added', 'success');
+                $this->alert('Flight ' . $flight->id . ' added', 'success');
             } else
             {
                 $this->flights_model->update($flight);
-                $this->alert('Task ' . $flight->id . ' updated', 'success');
+                $this->alert('Flight ' . $flight->id . ' updated', 'success');
             }
                
             $this->showit();
