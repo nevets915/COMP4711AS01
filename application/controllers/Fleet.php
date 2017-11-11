@@ -76,4 +76,100 @@ class Fleet extends Application
             }
 
         }
+        
+        public function add()
+        {
+            $fleet = $this->fleet_model->create();
+            $this->session->set_userdata('fleet', $fleet);
+            $this->showit();        
+        }
+        
+        public function edit($id = null)
+        {
+            if ($id == null)
+                redirect('/fleet');
+            $fleet = $this->tasks->get($id);
+            $this->session->set_userdata('fleet', $fleet);
+            $this->showit();
+        }
+           
+        private function showit()
+        {
+            $submitButtonLabel = 'Update fleet';
+            $this->load->helper('form');
+            $fleet = $this->session->userdata('fleet');
+            $this->data['id'] = $fleet->id;
+
+            // if no errors, pass an empty message
+            if ( ! isset($this->data['error']))
+                $this->data['error'] = '';
+
+            // Check to see if its new or editing
+            if (empty($fleet->id))
+            {
+                $submitButtonLabel = 'Create new plane';
+            }
+
+            $fields = array(
+                'fmanufacturer'  => form_label('Manufacturer') . form_input('manufacturer', $fleet->manufacturer),
+                'fmodel'  => form_label('model') . form_input('model', $fleet->model),
+                'fseats'  => form_label('seats') . form_input('seats', $fleet->seats),
+                'freach'  => form_label('reach') . form_input('reach', $fleet->reach),
+                'fcruise'  => form_label('cruise') . form_input('cruise', $fleet->cruise),
+                'ftakeoff'  => form_label('takeoff') . form_input('takeoff', $fleet->takeoff),
+                'fhourly'  => form_label('hourly') . form_input('hourly', $fleet->hourly),
+                'zsubmit'    => form_submit('submit', $submitButtonLabel),
+            );
+            $this->data = array_merge($this->data, $fields);
+
+            $this->data['pagebody'] = 'fleetedit';
+            $this->render();
+        }
+        
+        // handle form submission
+        public function submit()
+        {
+
+            // retrieve & update data transfer buffer
+            $fleet = (array) $this->session->userdata('fleet');
+            $fleet = array_merge($fleet, $this->input->post());
+            $fleet = (object) $fleet;  // convert back to object
+            $this->session->set_userdata('fleet', (object) $fleet);
+
+            if (empty($fleet->id))
+            {
+                $fleet->id = $this->fleet_model->highest() + 1;
+                $this->fleet_model->add($fleet);
+                $this->alert('Fleet ' . $fleet->id . ' added', 'success');
+            } else
+            {
+                $this->fleet_model->update($fleet);
+                $this->alert('Fleet ' . $fleet->id . ' updated', 'success');
+            }
+               
+            $this->showit();
+        }
+        
+        
+        // build a suitable error mesage
+        private function alert($message) {
+            $this->load->helper('html');        
+            $this->data['error'] = heading($message,3);
+        }
+
+        // Forget about this edit
+        function cancel() {
+            $this->session->unset_userdata('fleet');
+            redirect('/fleet');
+        }
+
+        // Delete this item altogether
+        function delete()
+        {
+            $dto = $this->session->userdata('fleet');
+            $task = $this->tasks->get($dto->id);
+            $this->tasks->delete($task->id);
+            $this->session->unset_userdata('fleet');
+            redirect('/fleet');
+        }
 }
