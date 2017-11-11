@@ -1,5 +1,11 @@
 <h1>Flight ID: {id}</h1>
+<br />
+<br />
+<br />
+<br />
+<br />
 <form role="form" action="/flights/submit" method="post">
+    
     {fdestination}
     {farrivalairport}
     {fdeparteairport}

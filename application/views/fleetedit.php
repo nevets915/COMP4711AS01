@@ -1,4 +1,9 @@
 <h1>Fleet ID: {id}</h1>
+<br />
+<br />
+<br />
+<br />
+<br />
 <form role="form" action="/fleet/submit" method="post">
     {fmanufacturer}
     {fmodel}
