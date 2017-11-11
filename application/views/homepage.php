@@ -164,7 +164,7 @@
     <div class="col4 pad_left1">
         <h3>Dashboard</h3>
             <table class="table-striped">
-            <tr style="background-color: #0e0e0e; color: #ffffff;">
+            <tr>
                 <th>Number of Flight</th>
                 <th>Number of Fleet</th>
             </tr>
@@ -172,7 +172,7 @@
                 <td>{flight_count}</td>
                 <td>{fleet_count}</td>
             </tr>
-            <tr style="background-color: #0e0e0e; color: #ffffff;">
+            <tr>
                 <th>Available Destination</th>
                 <th>Base Airports</th>
             </tr>

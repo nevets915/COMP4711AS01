@@ -7,19 +7,17 @@ class Welcome extends Application
 	function __construct()
 	{
 		parent::__construct();
-        $this->load->model('Airline');
         $this->load->model('Flights_model');
 	}
 
 	/**
 	 * Homepage for our app
 	 */
-	public function index()
-	{
+	public function index() {
 
         $fleet =  $this -> fleet_model -> all();
         $flights =  $this -> flights_model -> all();
-
+        $airlines = $this -> wacky -> airlines();
 		// this is the view we want shown
 		$this->data['pagebody'] = 'homepage';
         $this->data['fleet_count'] = count($fleet);
@@ -34,15 +32,15 @@ class Welcome extends Application
 
     function showDestinations(){
 
-	    $airlines = $this ->Airline -> all();
+	    $airlines = $this -> wacky -> airlines();
 
-        foreach ($airlines as $key => $value){
-            if($value['id'] == 'bluebird'){
+        foreach ($airlines as $airline){
 
+            if($airline['id'] == 'bluebird'){
                 $destinations = array(
-                    '1' => array('dest' => $value['dest1']),
-                    '2' => array('dest' => $value['dest2']),
-                    '3' => array('dest' => $value['dest3'])
+                    '1' => array('dest' => $airline['dest1']),
+                    '2' => array('dest' => $airline['dest2']),
+                    '3' => array('dest' => $airline['dest3'])
                 );
             }
         }
@@ -53,13 +51,12 @@ class Welcome extends Application
 
     function showBases(){
 
-        $airlines = $this ->Airline -> all();
+        $airlines = $this -> wacky -> airlines();
 
-        foreach ($airlines as $key => $value){
-            if($value['id'] == 'bluebird'){
+        foreach ($airlines as $airline){
+            if($airline['id'] == 'bluebird'){
 
-
-                $base = $value['base'];
+                $base = $airline['base'];
             }
         }
 

@@ -57,7 +57,10 @@ if (!defined('APPPATH'))
         <li id="menu_active"><a href="/"><span><span>Home</span></span></a></li>
         <li><a href="/flights"><span><span>Flights</span></span></a></li>
         <li class="end"><a href="/fleet"><span><span>Fleets</span></span></a></li>
+        <li><a href="/roles/actor/Guest"><span><span>Guest</span></span></a></li>
+        <li><a href="/roles/actor/Admin"><span><span>Admin</span></span></a></li>
       </ul>
+        
     </nav>
   </header>
     
