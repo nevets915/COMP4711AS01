@@ -9,8 +9,6 @@
 Team conventions: Allman notation, markdown for changelog  
 Changelog format: [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) 
 
-Date format is: MM.DD.YY
-
 ## Log Changes
 1. SK: Initialized the changelog.md 
 
@@ -89,17 +87,17 @@ Release Date: 10.08.17
         - flightpage view created
         - template view fixed
 
-### Version 1.2.1 - SM
-Release Date: 11.10.17
+### Version 1.2.1 - SK
+Release Date: 10.11.17
     - bugfixes
         - Model naming convention changed
         - Model key naming convention changed
 
-### Version 2.0.0 - SM
-Release Date: 11.09.17
+### Version 2.0.0 - SK
+Release Date: 11.12.17
 
 ##### New Components
-    - controllers
+    - controllers     
         - Fleet
         - Flights
     - model
@@ -109,7 +107,7 @@ Release Date: 11.09.17
         - fleet
         - plane
         - flights
-
+    
 ##### Updated Components
     - controllers
         - Roles added
@@ -125,24 +123,3 @@ Release Date: 11.09.17
     - Other
 	- Added session and parsedown to autoload libraries
 	- Added Admin and Guest constants
-
-### Version 2.0.0 - SK
-Release Date: 11.10.17
-
-#### New Components
-    - public
-        - assets
-            - css
-                - bootstrap.min.css
-                - bootstrap-responsive.min.css
-
-##### Updated Components
-    - controllers
-        - Welcome.php
-    - views
-        - homepage.php
-        - template.php
-    - public
-            - assets
-                - css
-                    - style.css

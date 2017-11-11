@@ -1,5 +1,5 @@
 <h1>Task # {id}</h1>
-<form role="form" action="/flights/submit" method="post">
+<form role="form" action="/flight/submit" method="post">
     {fid}
     {farrivalairport}
     <br/>
@@ -10,7 +10,7 @@
     {farrivaltime}
     <br/>
     {zsubmit}
-    <a href="/flights/cancel"><input type="button" value="Cancel the current edit"/></a>
-    <a href="/flights/delete"><input type="button" value="Delete this flight"/></a>  
+    <a href="/flight/cancel"><input type="button" value="Cancel the current edit"/></a>
+    <a href="/flight/delete"><input type="button" value="Delete this flight"/></a>  
 </form>
     {error}
