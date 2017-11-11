@@ -18,6 +18,7 @@ if (!defined('APPPATH'))
     <title>AirLines</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" >
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/layout.css" type="text/css" media="all">
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.5.2.js" ></script>
