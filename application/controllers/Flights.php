@@ -89,12 +89,12 @@ class Flights extends Application
             }
 
             $fields = array(
-                'fdestination'  => form_label('Destination') . form_input('destination', $flight->Destination),
-                'farrivalairport'  => form_label('Arrival Airport') . form_input('arrivalairport', $flight->ArrivalAirport),
-                'fdeparteairport'  => form_label('Departure Airport') . form_input('departureairport', $flight->DepartureAirport),
-                'fplaneid'  => form_label('Plane ID') . form_input('planeid', $flight->PlaneID),
-                'fdeparturetime'  => form_label('Departure Time') . form_input('departuretime', $flight->DepartureTime),
-                'farrivaltime'  => form_label('Arrival Time') . form_input('arrivaltime', $flight->ArrivalTime),
+                'fdestination'  => form_label('Destination') . form_input('Destination', $flight->Destination),
+                'farrivalairport'  => form_label('Arrival Airport') . form_input('ArrivalAirport', $flight->ArrivalAirport),
+                'fdeparteairport'  => form_label('Departure Airport') . form_input('DepartureAirport', $flight->DepartureAirport),
+                'fplaneid'  => form_label('Plane ID') . form_input('PlaneID', $flight->PlaneID),
+                'fdeparturetime'  => form_label('Departure Time') . form_input('DepartureTime', $flight->DepartureTime),
+                'farrivaltime'  => form_label('Arrival Time') . form_input('ArrivalTime', $flight->ArrivalTime),
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
             );
             $this->data = array_merge($this->data, $fields);
@@ -109,6 +109,7 @@ class Flights extends Application
             // retrieve & update data transfer buffer
             $flight = (array) $this->session->userdata('flight');
             $flight = array_merge($flight, $this->input->post());
+            unset($flight['submit']);
             $flight = (object) $flight;  // convert back to object
             $this->session->set_userdata('flight', (object) $flight);
 

@@ -111,13 +111,13 @@ class Fleet extends Application
             }
 
             $fields = array(
-                'fmanufacturer'  => form_label('Manufacturer') . form_input('manufacturer', $fleet->manufacturer),
-                'fmodel'  => form_label('model') . form_input('model', $fleet->model),
-                'fseats'  => form_label('seats') . form_input('seats', $fleet->seats),
-                'freach'  => form_label('reach') . form_input('reach', $fleet->reach),
-                'fcruise'  => form_label('cruise') . form_input('cruise', $fleet->cruise),
-                'ftakeoff'  => form_label('takeoff') . form_input('takeoff', $fleet->takeoff),
-                'fhourly'  => form_label('hourly') . form_input('hourly', $fleet->hourly),
+                'fmanufacturer'  => form_label('Manufacturer') . form_input('Manufacturer', $fleet->Manufacturer),
+                'fmodel'  => form_label('Model') . form_input('Model', $fleet->Model),
+                'fseats'  => form_label('Seats') . form_input('Seats', $fleet->Seats),
+                'freach'  => form_label('Reach') . form_input('Reach', $fleet->Reach),
+                'fcruise'  => form_label('Cruise') . form_input('Cruise', $fleet->Cruise),
+                'ftakeoff'  => form_label('Takeoff') . form_input('Takeoff', $fleet->Takeoff),
+                'fhourly'  => form_label('Hourly') . form_input('Hourly', $fleet->Hourly),
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
             );
             $this->data = array_merge($this->data, $fields);
@@ -133,6 +133,7 @@ class Fleet extends Application
             // retrieve & update data transfer buffer
             $fleet = (array) $this->session->userdata('fleet');
             $fleet = array_merge($fleet, $this->input->post());
+            unset($fleet['submit']);
             $fleet = (object) $fleet;  // convert back to object
             $this->session->set_userdata('fleet', (object) $fleet);
 
