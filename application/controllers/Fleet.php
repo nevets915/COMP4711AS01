@@ -127,6 +127,30 @@ class Fleet extends Application
             $this->render();
         }
         
+        // handle form submission
+        public function submit()
+        {
+
+            // retrieve & update data transfer buffer
+            $fleet = (array) $this->session->userdata('fleet');
+            $fleet = array_merge($fleet, $this->input->post());
+            $fleet = (object) $fleet;  // convert back to object
+            $this->session->set_userdata('fleet', (object) $fleet);
+
+            if (empty($fleet->id))
+            {
+                $fleet->id = $this->fleet_model->highest() + 1;
+                $this->fleet_model->add($fleet);
+                $this->alert('Task ' . $fleet->id . ' added', 'success');
+            } else
+            {
+                $this->fleet_model->update($fleet);
+                $this->alert('Task ' . $fleet->id . ' updated', 'success');
+            }
+               
+            $this->showit();
+        }
+        
         
         // build a suitable error mesage
         private function alert($message) {

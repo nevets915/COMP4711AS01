@@ -101,6 +101,30 @@ class Flights extends Application
             $this->render();
         }
         
+        // handle form submission
+        public function submit()
+        {
+
+            // retrieve & update data transfer buffer
+            $flight = (array) $this->session->userdata('flight');
+            $flight = array_merge($flight, $this->input->post());
+            $flight = (object) $flight;  // convert back to object
+            $this->session->set_userdata('flight', (object) $flight);
+
+            if (empty($flight->id))
+            {
+                $flight->id = $this->flights_model->highest() + 1;
+                $this->flights_model->add($flight);
+                $this->alert('Task ' . $flight->id . ' added', 'success');
+            } else
+            {
+                $this->flights_model->update($flight);
+                $this->alert('Task ' . $flight->id . ' updated', 'success');
+            }
+               
+            $this->showit();
+        }
+        
     
         // build a suitable error mesage
         private function alert($message) {
@@ -111,7 +135,7 @@ class Flights extends Application
         // Forget about this edit
         function cancel() {
             $this->session->unset_userdata('flight');
-            redirect('/flight');
+            redirect('/flights');
         }
 
         // Delete this item altogether
@@ -121,7 +145,7 @@ class Flights extends Application
             $flight = $this->tasks->get($dto->id);
             $this->tasks->delete($flight->id);
             $this->session->unset_userdata('flight');
-            redirect('/flight');
+            redirect('/flights');
         }
         
 }
