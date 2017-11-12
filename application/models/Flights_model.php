@@ -18,12 +18,12 @@ class Flights_Model extends CSV_Model
     public function rules()
     {
         $config = array(
-        ['field' => 'destination', 'label' => 'Destination', 'rules' => 'alpha_numeric_spaces|max_length[3]'],
-        ['field' => 'arrivalairport', 'label' => 'Arrival Airport', 'rules' => 'alpha_numeric_spaces|max_length[3]'],
-        ['field' => 'departureairport', 'label' => 'Departure Airport', 'rules' => 'alpha_numeric_spaces|max_length[3]'],
-        ['field' => 'planeid', 'label' => 'TODO task', 'Plane Id' => 'alpha_numeric_spaces|max_length[3]'],
-        ['field' => 'departuretime', 'label' => 'Departure Time', 'rules' => 'alpha_numeric_spaces|max_length[3]'],
-        ['field' => 'arrivaltime', 'label' => 'Arrival Time', 'rules' => 'alpha_numeric_spaces|max_length[3]'],
+        ['field' => 'Destination', 'label' => 'Destination', 'rules' => 'alpha_numeric_spaces|max_length[1]'],
+        ['field' => 'ArrivalAirport', 'label' => 'Arrival Airport', 'rules' => 'alpha_numeric_spaces|max_length[1]'],
+        ['field' => 'DepartureAirport', 'label' => 'Departure Airport', 'rules' => 'alpha_numeric_spaces|max_length[1]'],
+        ['field' => 'PlaneId', 'label' => 'Plane ID', 'rules' => 'alpha_numeric_spaces|max_length[1]'],
+        ['field' => 'DepartureTime', 'label' => 'Departure Time', 'rules' => 'alpha_numeric_spaces|max_length[1]'],
+        ['field' => 'ArrivalTime', 'label' => 'Arrival Time', 'rules' => 'alpha_numeric_spaces|max_length[1]'],
         );
         return $config;
     }

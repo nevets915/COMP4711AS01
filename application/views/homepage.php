@@ -212,7 +212,7 @@
             {flight}
             <tr>
                     <td style="text-align: left;" class="pad_left1">
-                        {PlaneID}
+                        {PlaneId}
                     </td>
                     <td>
                         {DepartureAirport}
