@@ -111,13 +111,13 @@ class Fleet extends Application
             }
 
             $fields = array(
-                'fmanufacturer'  => form_label('manufacturer') . form_input('Manufacturer', $fleet->Manufacturer),
-                'fmodel'  => form_label('model') . form_input('Model', $fleet->Model),
-                'fseats'  => form_label('seats') . form_input('Seats', $fleet->Seats),
-                'freach'  => form_label('reach') . form_input('Reach', $fleet->Reach),
-                'fcruise'  => form_label('cruise') . form_input('Cruise', $fleet->Cruise),
-                'ftakeoff'  => form_label('takeoff') . form_input('Takeoff', $fleet->Takeoff),
-                'fhourly'  => form_label('hourly') . form_input('Hourly', $fleet->Hourly),
+                'fmanufacturer'  => form_label('Manufacturer') . form_dropdown('Manufacturer', $this->wacky->manufacturers()),
+                'fmodel'  => form_label('Model') . form_dropdown('Model', $this->wacky->models()),
+                'fseats'  => form_label('Seats') . form_input('Seats', $fleet->Seats),
+                'freach'  => form_label('Reach') . form_input('Reach', $fleet->Reach),
+                'fcruise'  => form_label('Cruise') . form_input('Cruise', $fleet->Cruise),
+                'ftakeoff'  => form_label('Takeoff') . form_input('Takeoff', $fleet->Takeoff),
+                'fhourly'  => form_label('Hourly') . form_input('Hourly', $fleet->Hourly),
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
             );
             $this->data = array_merge($this->data, $fields);

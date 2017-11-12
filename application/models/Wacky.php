@@ -62,6 +62,30 @@ class Wacky
         $this->regions = json_decode($response, TRUE);
         return $this->regions;
     }
+    
+    public function manufacturers()
+    {
+        $manufacturers = array();
+        if(!isset($this->airplanes))
+            $this->airplanes();
+        foreach($this->airplanes as $airplane)
+        {
+            $manufacturers[$airplane['manufacturer']] = $airplane['manufacturer'];
+        }
+        return $manufacturers;
+    }
+    
+    public function models()
+    {
+        $models = array();
+        if(!isset($this->airplanes))
+            $this->airplanes();
+        foreach($this->airplanes as $airplane)
+        {
+            $models[$airplane['model']] = $airplane['model'];
+        }
+        return $models;
+    }
 
     public function destinationIds()
     {
