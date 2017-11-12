@@ -1,3 +1,3 @@
-id,Manufacturer,Model,Seats,Reach,Cruise,Takeoff,Hourly
-BB_avanti_001,Piaggo,"Avanti II",8,2797,589,994,977
-BB_caravan_001,Cessna,"Grand Caravan EX",14,1689,340,660,389
+id,Manufacturer,Model,Price,Seats,Reach,Cruise,Takeoff,Hourly
+BB_avanti_001,Piaggo,"Avanti II",7195,8,2797,589,994,977
+BB_caravan_001,Cessna,"Grand Caravan EX",2300,14,1689,340,660,389

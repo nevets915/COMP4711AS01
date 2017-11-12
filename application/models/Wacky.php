@@ -106,4 +106,16 @@ class Wacky
         }
         return $destinationAirports;
     }
+    
+    public function getPrice($manufacturer, $model)
+    {
+        if(!isset($this->airplanes))
+            $this->airplanes();
+        foreach($this->airplanes as $airplane)
+        {
+            if($airplane['manufacturer'] == $manufacturer && $airplane['model'] == $model)
+                return (int)$airplane['price'];
+        }
+        return 0;
+    }
 }
