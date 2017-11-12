@@ -1,3 +1,5 @@
+
+
 <div class="for_banners">
   <article class="col1">
     <div class="tabs">
@@ -7,43 +9,51 @@
 <!--        <li class="end"><a href="#Rental">Rental</a></li>-->
 <!--      </ul>-->
       <div class="content">
-        <div class="tab-content" id="Flight">
-          <form id="form_1" action="#" method="post">
-            <div>
-              <div class="radio">
-                <div class="wrapper">
-                  <input type="radio" name="name1" checked>
-                  <span class="left">Standard</span>
-                  <input type="radio" name="name1">
-                  <span class="left">World Map</span> </div>
-              </div>
-              <div class="row"> <span class="left">From</span>
-                <input type="text" class="input">
-              </div>
-              <div class="row"> <span class="left">To</span>
-                <input type="text" class="input">
-              </div>
-              <div class="wrapper">
-                <div class="col1">
-                  <div class="row"> <span class="left">Outbound</span>
-                    <input type="text" class="input1" value="03.05.2011"  onblur="if(this.value=='') this.value='03.05.2011'" onFocus="if(this.value =='03.05.2011' ) this.value=''">
-                  </div>
-                  <div class="row"> <span class="left">Return</span>
-                    <input type="text" class="input1" value="10.05.2011"  onblur="if(this.value=='') this.value='10.05.2011'" onFocus="if(this.value =='10.05.2011' ) this.value=''">
-                  </div>
-                </div>
-                <input type="text" class="input1 marg_top1" value="+/- 0 Days"  onblur="if(this.value=='') this.value='+/- 0 Days'" onFocus="if(this.value =='+/- 0 Days' ) this.value=''">
-              </div>
-              <div class="row"> <span class="left">Adults</span>
-                <input type="text" class="input2" value="2"  onblur="if(this.value=='') this.value='2'" onFocus="if(this.value =='2' ) this.value=''">
-              </div>
-              <div class="row"> <span class="left">Children</span>
-                <input type="text" class="input2" value="0"  onblur="if(this.value=='') this.value='0'" onFocus="if(this.value =='0' ) this.value=''">
-                <span class="pad_left1">(0-11 years)</span> </div>
-              <div class="wrapper"> <span class="right relative"><a href="#" class="button1"><strong>Search</strong></a></span> <a href="#" class="link1">More Options</a> </div>
-            </div>
-          </form>
-        </div>
+<!--          booking box-->
+<!--        <div class="tab-content" id="Flight">-->
+<!--          <form id="form_1" action="#" method="post">-->
+<!--            <div>-->
+<!--              <div class="radio">-->
+<!--                <div class="wrapper">-->
+<!--                  <input type="radio" name="name1" checked>-->
+<!--                  <span class="left">Standard</span>-->
+<!--                  <input type="radio" name="name1">-->
+<!--                  <span class="left">World Map</span> </div>-->
+<!--              </div>-->
+<!--              <div class="row"> <span class="left">From</span>-->
+<!--                  -->
+<!--              </div>-->
+
+<!--              <div class="wrapper">-->
+<!--                <div class="col1">-->
+<!--                  <div class="row"> <span class="left">Outbound</span>-->
+<!--                    <input type="text" class="input1" value="03.05.2011"  onblur="if(this.value=='') this.value='03.05.2011'" onFocus="if(this.value =='03.05.2011' ) this.value=''">-->
+<!--                  </div>-->
+<!--                  <div class="row"> <span class="left">Return</span>-->
+<!--                    <input type="text" class="input1" value="10.05.2011"  onblur="if(this.value=='') this.value='10.05.2011'" onFocus="if(this.value =='10.05.2011' ) this.value=''">-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--                <input type="text" class="input1 marg_top1" value="+/- 0 Days"  onblur="if(this.value=='') this.value='+/- 0 Days'" onFocus="if(this.value =='+/- 0 Days' ) this.value=''">-->
+<!--              </div>-->
+
+<!--              <div class="row"> <span class="left">Adults</span>-->
+<!--                <input type="text" class="input2" value="2"  onblur="if(this.value=='') this.value='2'" onFocus="if(this.value =='2' ) this.value=''">-->
+<!--              </div>-->
+
+<!--              <div class="row"> <span class="left">Children</span>-->
+<!--                <input type="text" class="input2" value="0"  onblur="if(this.value=='') this.value='0'" onFocus="if(this.value =='0' ) this.value=''">-->
+<!--                <span class="pad_left1">(0-11 years)</span> </div>-->
+
+<!--              <div class="wrapper">-->
+<!--                  <span class="right relative">-->
+<!--                      <a href="#" class="button1">-->
+<!--                          <strong>book</strong>-->
+<!--                      </a>-->
+<!--                  </span>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--        </div>-->
 <!--        <div class="tab-content" id="Hotel">-->
 <!--          <form id="form_2" action="#" method="post">-->
 <!--            <div>-->
@@ -118,6 +128,53 @@
   </article>
   <div id="slider"> <img src="assets/images/banner1.jpg" alt=""> <img src="assets/images/banner2.jpg" alt=""> <img src="assets/images/banner3.jpg" alt=""> </div>
 </div>
+
+
+
+<div class="wrapper pad1">
+
+    <div class="col">
+        <h3>Booking</h3>
+        <table>
+            <tr>
+                <th>
+                    Departure
+                </th>
+                <th>
+                    Arrival
+                </th>
+                <th>
+                    Dept. Date (YYYY-MM-DD)
+                </th>
+                <th>
+                    Arrv. Date (YYYY-MM-DD)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    {depAirport}
+                </td>
+                <td>
+                    {ariAirport}
+                </td>
+                <td>
+                    {departureDate}
+                </td>
+                <td>
+                    {arrivalDate}
+                </td>
+                <td>
+                    {bookSubmit}
+                </td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+
 <div class="wrapper pad1">
   <article class="col1">
 <!--    <div class="box1">-->
