@@ -68,11 +68,11 @@ class Fleet extends Application
             $role = $this->session->userdata('userrole');
             if ($role == ROLE_ADMIN) 
             {
-                $this->data['pagination'] = $this->parser->parse('fleetadd',[], true);
+                $this->data['add'] = $this->parser->parse('fleetadd',[], true);
             }
             else
             {
-                $this->data['pagination'] = "";
+                $this->data['add'] = "";
             }
 
         }

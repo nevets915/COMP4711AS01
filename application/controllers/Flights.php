@@ -44,11 +44,11 @@ class Flights extends Application
             $role = $this->session->userdata('userrole');
             if ($role == ROLE_ADMIN) 
             {
-                $this->data['pagination'] = $this->parser->parse('flightadd',[], true);
+                $this->data['add'] = $this->parser->parse('flightadd',[], true);
             }
             else
             {
-                $this->data['pagination'] = "";
+                $this->data['add'] = "";
             }
             
         }
