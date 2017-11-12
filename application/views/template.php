@@ -17,6 +17,16 @@ if (!defined('APPPATH'))
 <head>
     <title>AirLines</title>
     <meta charset="utf-8">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/css/layout.css" type="text/css" media="all">
+
+    <!--    bootstrap 3-->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/reset.css" type="text/css" media="all">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" >
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" media="all">
@@ -32,10 +42,12 @@ if (!defined('APPPATH'))
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.nivo.slider.pack.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/atooltip.jquery.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
+
     <!--[if lt IE 9]>
     <script type="text/javascript" src="js/html5.js"></script>
     <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
     <![endif]-->
+
 </head>    
 <body id="page1">
 <div class="main">

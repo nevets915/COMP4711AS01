@@ -17,15 +17,53 @@ class Welcome extends Application
 
         $fleet =  $this -> fleet_model -> all();
         $flights =  $this -> flights_model -> all();
-        $airlines = $this -> wacky -> airlines();
-		// this is the view we want shown
+        $this -> load -> helper('form');
+
+
+        // will be replaced with data
+        $dropdownTest = array(
+        //value       Text
+            'YVR'        => 'YVR',
+            'YVR1'       => 'YVR1',
+            'YVR2'       => 'YVR2',
+            'YVR3'        => 'YVR3',
+        );
+
+        $shirts_on_sale = array('small', 'large');
+
+        // this is the view we want shown
 		$this->data['pagebody'] = 'homepage';
         $this->data['fleet_count'] = count($fleet);
         $this->data['flight_count'] = count($flights);
         $this->data['destinations'] = $this -> showDestinations();
         $this->data['base_airport'] = $this -> showBases();
         $this->data['flight'] = $this -> showFlightTable();
-//        $this->data['dashboard_area'] = $this -> getCountOfFlight();
+
+
+        $this->data['depAirport'] = form_dropdown('depAirport', $this -> showDestinations(), 'YVR',
+                                                    'class = input style="width:60%"');
+        $this->data['ariAirport'] = form_dropdown('ariAirport', $this -> showDestinations(), 'YVR',
+                                                    'class = input style="width:60%"');
+
+        date_default_timezone_set('America/Vancouver');
+        $date = date('Y-M-d', time());
+
+        $depDate = array(
+            'name' => 'depDate_name',
+            'id' => 'depDate_id',
+            'placeholder' => $date
+        );
+
+        $arrDate = array(
+            'name' => 'arrDate_name',
+            'id' => 'arrpDate_id',
+            'placeholder' => $date
+        );
+
+        $this->data['departureDate'] = form_input($depDate);
+        $this->data['arrivalDate'] = form_input($arrDate);
+        $this->data['bookSubmit'] = form_submit('Book', 'bookSubmit', 'class="btn btn-sm"');
+        //        $this->data['dashboard_area'] = $this -> getCountOfFlight();
         $this->render();
 
 	}
