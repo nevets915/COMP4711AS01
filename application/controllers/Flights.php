@@ -89,7 +89,7 @@ class Flights extends Application
             }
 
             $fields = array(
-                'fdestination'  => form_label('Destination') . form_dropdown('Destination', $this->wacky->destinationIds()),
+                'fdestination'  => form_label('Destination') . form_dropdown('Destination', $this->wacky->airportIds()),
                 'farrivalairport'  => form_label('Arrival Airport') . form_dropdown('ArrivalAirport', $this->wacky->airportNames()),
                 'fdeparteairport'  => form_label('Departure Airport') . form_dropdown('DepartureAirport', $this->wacky->airportNames()),
                 'fplaneid'  => form_label('Plane ID') . form_dropdown('PlaneID', $this->fleet_model->planeIds()),

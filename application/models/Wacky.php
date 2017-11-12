@@ -63,6 +63,11 @@ class Wacky
         return $this->regions;
     }
     
+    /*
+     * Purpose: List the manufacturers recognized by WAC 
+     * Returns: A list of allowed manufacturers, the data 
+     * for an explicitly identified one, or an error message 
+     */
     public function manufacturers()
     {
         $manufacturers = array();
@@ -75,6 +80,11 @@ class Wacky
         return $manufacturers;
     }
     
+    /*
+     * Purpose: List the models recognized by WAC 
+     * Returns: A list of allowed models, the data 
+     * for an explicitly identified one, or an error message 
+     */
     public function models()
     {
         $models = array();
@@ -87,7 +97,12 @@ class Wacky
         return $models;
     }
 
-    public function destinationIds()
+    /*
+     * Purpose: List the airportIds recognized by WAC 
+     * Returns: A list of allowed airportIds, the data 
+     * for an explicitly identified one, or an error message 
+     */
+    public function airportIds()
     {
         $destinationIds = array();
         foreach($this->airports as $airport)
@@ -97,6 +112,11 @@ class Wacky
         return $destinationIds;
     }
     
+    /*
+     * Purpose: List the airportNames recognized by WAC 
+     * Returns: A list of allowed airportNames, the data 
+     * for an explicitly identified one, or an error message 
+     */
     public function airportNames()
     {
         $destinationAirports = array();
@@ -105,5 +125,21 @@ class Wacky
             array_push($destinationAirports, $airport['airport']);
         }
         return $destinationAirports;
+    }
+    
+    /*
+     * Purpose: Get the price of a plane recognized by WAC by manufacturer and model
+     * Returns: The price of the specified plane or 0 if not found
+     */
+    public function getPrice($manufacturer, $model)
+    {
+        if(!isset($this->airplanes))
+            $this->airplanes();
+        foreach($this->airplanes as $airplane)
+        {
+            if($airplane['manufacturer'] == $manufacturer && $airplane['model'] == $model)
+                return (int)$airplane['price'];
+        }
+        return 0;
     }
 }
