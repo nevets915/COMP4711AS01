@@ -15,6 +15,6 @@
     <br/>
     {zsubmit}
     <a href="/fleet/cancel"><input type="button" value="Cancel the current edit"/></a>
-    <a href="/fleet/delete"><input type="button" value="Delete this flight"/></a>  
+    <a href="/fleet/delete"><input type="button" value="Delete this Plane"/></a>  
 </form>
     {error}
