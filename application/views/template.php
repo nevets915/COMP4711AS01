@@ -23,7 +23,8 @@ if (!defined('APPPATH'))
     <link rel="stylesheet" href="assets/css/layout.css" type="text/css" media="all">
 
     <!--    bootstrap 3-->
-<!--    <script src="assets/js/bootstrap.min.js"></script>-->
+    <script src="assets/js/bootstrap.min.js"></script>
+
 
     <script type="text/javascript" src="assets/js/jquery-1.5.2.js" ></script>
     <script type="text/javascript" src="assets/js/cufon-yui.js"></script>
@@ -38,6 +39,7 @@ if (!defined('APPPATH'))
     <script type="text/javascript" src="js/html5.js"></script>
     <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
     <![endif]-->
+
 </head>    
 <body id="page1">
 <div class="main">
