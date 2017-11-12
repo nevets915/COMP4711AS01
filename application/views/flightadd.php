@@ -1,1 +1,1 @@
-<a href="/flights/add"><input type="button" value="Add..."/></a>
+<a href="/flights/add"><input type="button" value="Add a flight"/></a>

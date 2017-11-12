@@ -26,7 +26,7 @@ class Application extends CI_Controller
 		$this->data = array();
 
 		// Set default page title
-		$this->data['pagetitle'] = 'Quotes CMS';
+		$this->data['pagetitle'] = 'Bluebird Airlines';
 
 		// if in development mode, show the CodeIgniter version
 		$this->data['ci_version'] = (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '';

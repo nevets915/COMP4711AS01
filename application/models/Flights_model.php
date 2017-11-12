@@ -12,5 +12,6 @@ class Flights_Model extends CSV_Model
     public function __construct()
     {
         parent::__construct(APPPATH . '../data/flights.csv', 'id');
+        $this->airports = $this->wacky->airports();
     }
 }

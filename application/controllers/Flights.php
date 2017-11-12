@@ -52,4 +52,102 @@ class Flights extends Application
             }
             
         }
+        
+        public function add()
+        {
+            $flight = $this->flights_model->create();
+            $this->session->set_userdata('flight', $flight);
+            $this->showit();        
+        }
+        
+        public function edit($id = null)
+        {
+            if ($id == null)
+                redirect('/flights');
+            $flight = $this->tasks->get($id);
+            $this->session->set_userdata('flight', $flight);
+            $this->showit();
+        }
+           
+        private function showit()
+        {
+            $submitButtonLabel = 'Update the flight';
+            $this->load->helper('form');
+            $flight = $this->session->userdata('flight');
+            $this->data['id'] = $flight->id;
+
+            // if no errors, pass an empty message
+            if ( ! isset($this->data['error']))
+            {
+                $this->data['error'] = '';
+            }
+            
+            // Check to see if its new or editing
+            if (empty($flight->id))
+            {
+                $submitButtonLabel = 'Create new flight';
+            }
+
+            $fields = array(
+                'fdestination'  => form_label('Destination') . form_dropdown('Destination', $this->wacky->destinationIds()),
+                'farrivalairport'  => form_label('Arrival Airport') . form_dropdown('ArrivalAirport', $this->wacky->airportNames()),
+                'fdeparteairport'  => form_label('Departure Airport') . form_dropdown('DepartureAirport', $this->wacky->airportNames()),
+                'fplaneid'  => form_label('Plane ID') . form_dropdown('PlaneID', $this->fleet_model->planeIds()),
+                'fdeparturetime'  => form_label('Departure Time') . form_input('DepartureTime', $flight->DepartureTime),
+                'farrivaltime'  => form_label('Arrival Time') . form_input('ArrivalTime', $flight->ArrivalTime),
+                'zsubmit'    => form_submit('submit', $submitButtonLabel),
+            );
+            $this->data = array_merge($this->data, $fields);
+
+            $this->data['pagebody'] = 'flightedit';
+            $this->render();
+        }
+        
+        // handle form submission
+        public function submit()
+        {
+            // retrieve & update data transfer buffer
+            $flight = (array) $this->session->userdata('flight');
+            $flight = array_merge($flight, $this->input->post());
+            unset($flight['submit']);
+            $flight = (object) $flight;  // convert back to object
+            $this->session->set_userdata('flight', (object) $flight);
+
+            if (empty($flight->id))
+            {
+                $flight->id = $this->flights_model->highest() + 1;
+                $this->flights_model->add($flight);
+                $this->alert('Flight ' . $flight->id . ' added', 'success');
+            } else
+            {
+                $this->flights_model->update($flight);
+                $this->alert('Flight ' . $flight->id . ' updated', 'success');
+            }
+               
+            $this->showit();
+        }
+        
+    
+        // build a suitable error mesage
+        private function alert($message) {
+            $this->load->helper('html');        
+            $this->data['error'] = heading($message,3);
+        }
+
+        // Forget about this edit
+        function cancel() {
+            $this->session->unset_userdata('flight');
+            redirect('/flights');
+        }
+
+        // Delete this item altogether
+        function delete()
+        {
+            $dto = $this->session->userdata('flight');
+            $flight = $this->tasks->get($dto->id);
+            $this->tasks->delete($flight->id);
+            $this->session->unset_userdata('flight');
+            redirect('/flights');
+        }
+        
 }

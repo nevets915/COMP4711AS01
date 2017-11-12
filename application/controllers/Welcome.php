@@ -81,7 +81,7 @@ class Welcome extends Application
                     '3' => array('dest' => $airline['dest3'])
                 );
             }
-        }
+            }
 
         return $destinations;
     }
@@ -90,7 +90,6 @@ class Welcome extends Application
     function showBases(){
 
         $airlines = $this -> wacky -> airlines();
-
         foreach ($airlines as $airline){
             if($airline['id'] == 'bluebird'){
 

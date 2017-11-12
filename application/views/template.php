@@ -17,6 +17,7 @@ if (!defined('APPPATH'))
 <head>
     <title>AirLines</title>
     <meta charset="utf-8">
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
     <link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="all">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
@@ -26,15 +27,22 @@ if (!defined('APPPATH'))
     <script src="assets/js/bootstrap.min.js"></script>
 
 
-    <script type="text/javascript" src="assets/js/jquery-1.5.2.js" ></script>
-    <script type="text/javascript" src="assets/js/cufon-yui.js"></script>
-    <script type="text/javascript" src="assets/js/cufon-replace.js"></script>
-    <script type="text/javascript" src="assets/js/Cabin_400.font.js"></script>
-    <script type="text/javascript" src="assets/js/tabs.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.jqtransform.js" ></script>
-    <script type="text/javascript" src="assets/js/jquery.nivo.slider.pack.js"></script>
-    <script type="text/javascript" src="assets/js/atooltip.jquery.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/reset.css" type="text/css" media="all">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/layout.css" type="text/css" media="all">
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-1.5.2.js" ></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/cufon-yui.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/cufon-replace.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/Cabin_400.font.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/tabs.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.jqtransform.js" ></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/cufon.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/slideshow.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.nivo.slider.pack.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/atooltip.jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/script.js"></script>
+
     <!--[if lt IE 9]>
     <script type="text/javascript" src="js/html5.js"></script>
     <style type="text/css">.main, .tabs ul.nav a, .content, .button1, .box1, .top { behavior:url("../js/PIE.htc")}</style>
@@ -73,19 +81,16 @@ if (!defined('APPPATH'))
     <footer>
         <div class="wrapper">
           <ul id="icons">
-            <li><a href="#" class="normaltip"><img src="assets/images/icon1.jpg" alt=""></a></li>
-            <li><a href="#" class="normaltip"><img src="assets/images/icon2.jpg" alt=""></a></li>
-            <li><a href="#" class="normaltip"><img src="assets/images/icon3.jpg" alt=""></a></li>
-            <li><a href="#" class="normaltip"><img src="assets/images/icon4.jpg" alt=""></a></li>
-            <li><a href="#" class="normaltip"><img src="assets/images/icon5.jpg" alt=""></a></li>
-            <li><a href="#" class="normaltip"><img src="assets/images/icon6.jpg" alt=""></a></li>
+            <li><a href="#" class="normaltip"><img src="<?php echo base_url(); ?>assets/images/icon1.jpg" alt=""></a></li>
+            <li><a href="#" class="normaltip"><img src="<?php echo base_url(); ?>assets/images/icon2.jpg" alt=""></a></li>
+            <li><a href="#" class="normaltip"><img src="<?php echo base_url(); ?>assets/images/icon3.jpg" alt=""></a></li>
+            <li><a href="#" class="normaltip"><img src="<?php echo base_url(); ?>assets/images/icon4.jpg" alt=""></a></li>
+            <li><a href="#" class="normaltip"><img src="<?php echo base_url(); ?>assets/images/icon5.jpg" alt=""></a></li>
+            <li><a href="#" class="normaltip"><img src="<?php echo base_url(); ?>assets/images/icon6.jpg" alt=""></a></li>
           </ul>
           <div class="links">Copyright &copy; <a href="#">Domain Name</a> All Rights Reserved</div>
         </div>
     </footer>
   </div>
-    
-<script type="text/javascript" src="assets/js/cufon.js"></script>
-<script type="text/javascript" src="assets/js/slideshow.js"></script>
 </body>
 </html>
