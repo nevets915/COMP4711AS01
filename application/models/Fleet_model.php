@@ -1,11 +1,9 @@
 <?php
 
 /**
- * This is a "CMS" model for quotes, but with bogus hard-coded data,
- * so that we don't have to worry about any database setup.
- * This would be considered a "mock database" model.
+ * This is a collection entity model for a fleet
  *
- * @author jim
+ * @author namblue
  */
 class Fleet_Model extends CSV_Model
 {
@@ -14,6 +12,9 @@ class Fleet_Model extends CSV_Model
         parent::__construct(APPPATH . '../data/fleet.csv', 'id');        
     }
     
+    /*
+     * Returns a list of plane ids from the csv file
+     */
     function planeIds()
     {
             $results = array();
@@ -32,6 +33,9 @@ class Fleet_Model extends CSV_Model
         return $config;
     }
     
+    /*
+     * Returns the total price of all planes in the fleet csv file
+     */
     public function totalPrice()
     {
         $results = 0;
