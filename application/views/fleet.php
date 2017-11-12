@@ -12,7 +12,7 @@
             {fleet}
                 <tr>
                     <td><a href="fleet/show/{id}">{id}</a></td>
-                    <td>{model}</td>
+                    <td>{Model}</td>
                 </tr>
             {/fleet}
         </tbody>

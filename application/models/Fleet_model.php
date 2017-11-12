@@ -14,13 +14,13 @@ class Fleet_Model extends CSV_Model
         parent::__construct(APPPATH . '../data/fleet.csv', 'id');        
     }
     
-    // provide form validation rules
-    public function rules()
+    function planeIds()
     {
-        $config = array(
-        ['field' => 'manufacturer', 'label' => 'Manufacturer', 'rules' => 'alpha_numeric_spaces|max_length[3]'],
-        ['field' => 'model', 'label' => 'Model', 'rules' => 'alpha_numeric_spaces|max_length[3]'],
-        );
+            $results = array();
+            foreach ($this->_data as $key => $record)
+                $results[] = $key;
+            return $results;
+    }
         return $config;
     }
 }
