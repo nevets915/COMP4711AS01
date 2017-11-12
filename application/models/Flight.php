@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of Flight
+ * Flight entity model
  *
  * @author namblue
  */
