@@ -1,11 +1,9 @@
 <?php
 //defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends Application
-{
+class Welcome extends Application {
 
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();
         $this->load->model('Flights_model');
 	}
@@ -29,8 +27,6 @@ class Welcome extends Application
             'YVR3'        => 'YVR3',
         );
 
-        $shirts_on_sale = array('small', 'large');
-
         // this is the view we want shown
 		$this->data['pagebody'] = 'homepage';
         $this->data['fleet_count'] = count($fleet);
@@ -39,31 +35,35 @@ class Welcome extends Application
         $this->data['base_airport'] = $this -> showBases();
         $this->data['flight'] = $this -> showFlightTable();
 
-
-        $this->data['depAirport'] = form_dropdown('depAirport', $this -> showDestinations(), 'YVR',
-                                                    'class = input style="width:60%"');
-        $this->data['ariAirport'] = form_dropdown('ariAirport', $this -> showDestinations(), 'YVR',
-                                                    'class = input style="width:60%"');
-
-        date_default_timezone_set('America/Vancouver');
-        $date = date('Y-M-d', time());
-
-        $depDate = array(
-            'name' => 'depDate_name',
-            'id' => 'depDate_id',
-            'placeholder' => $date
+        $fields = array(
+            'fDepAirport'   => form_label('Departure Airport')
+                                .form_dropdown('DepartureAirport', $this->flights_model->flightsDepartures()),
+            'fArrAirport'   => form_label('Arrival Airport')
+                                .form_dropdown('ArrivalAirport', $this->flights_model->flightsArrival()),
+            'fBookSubmit'   => form_submit('submit', 'Search')
         );
 
-        $arrDate = array(
-            'name' => 'arrDate_name',
-            'id' => 'arrpDate_id',
-            'placeholder' => $date
-        );
+        $this -> data = array_merge($this->data, $fields);
 
-        $this->data['departureDate'] = form_input($depDate);
-        $this->data['arrivalDate'] = form_input($arrDate);
-        $this->data['bookSubmit'] = form_submit('Book', 'bookSubmit', 'class="btn btn-sm"');
-        //        $this->data['dashboard_area'] = $this -> getCountOfFlight();
+// dates
+//        date_default_timezone_set('America/Vancouver');
+//        $date = date('Y-M-d', time());
+//
+//        $depDate = array(
+//            'name' => 'depDate_name',
+//            'id' => 'depDate_id',
+//            'placeholder' => $date
+//        );
+//
+//        $arrDate = array(
+//            'name' => 'arrDate_name',
+//            'id' => 'arrpDate_id',
+//            'placeholder' => $date
+//        );
+//        $this->data['departureDate'] = form_input($depDate);
+//        $this->data['arrivalDate'] = form_input($arrDate);
+
+
         $this->render();
 
 	}
@@ -100,6 +100,20 @@ class Welcome extends Application
         return $base;
     }
 
+    function showValueFromFlights($find){
+
+        $flights = $this -> flights_model ->all();
+
+        $result = array();
+
+        foreach ($flights as $flight){
+            array_push($result, $flight[$find]);
+        }
+
+        return $result;
+
+    }
+
     function showFlightTable(){
 
         $flights = $this->flights_model->all();
@@ -114,4 +128,40 @@ class Welcome extends Application
 
         return $flights;
     }
+
+    function submit(){
+
+        $this -> load -> helper('form');
+
+        $data = array(
+            'ArrivalAirport' => $this -> input -> get('ArrivalAirport'),
+            'DepartureAirport' => $this -> input -> get('DepartureAirport')
+        );
+
+        if(empty($data)){
+            $this->data['selectedDeparture'] = 'Empty';
+            $this->data['selectedArrival'] = 'Empty';
+            $this->data['errorMsg'] = "No value from before, please go back to home and retry";
+        } else {
+        }
+
+        $this -> data['selectedDeparture'] = '';
+        $this -> data['selectedArrival'] = '';
+        $this -> data['errorMsg'] = $this -> input -> get('fDepAirport');
+
+        $this -> data['pagebody'] = 'bookTemplate';
+        $this -> render();
+    }
+
+    function book(){
+
+        $this->showit();
+    }
+
+    function showit(){
+
+        $this -> render();
+    }
+
+
 }

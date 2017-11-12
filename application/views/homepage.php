@@ -135,43 +135,28 @@
 
     <div class="col">
         <h3>Booking</h3>
+        {debug}
+        <form role="form" action="/welcome/submit" method="post">
         <table>
             <tr>
-                <th>
-                    Departure
-                </th>
-                <th>
-                    Arrival
-                </th>
-                <th>
-                    Dept. Date (YYYY-MM-DD)
-                </th>
-                <th>
-                    Arrv. Date (YYYY-MM-DD)
-                </th>
-                <th>
-
-                </th>
-            </tr>
-            <tr>
                 <td>
-                    {depAirport}
+                    {fDepAirport}
                 </td>
                 <td>
-                    {ariAirport}
+                    {fArrAirport}
                 </td>
+<!--                <td>-->
+<!--                    {departureDate}-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    {arrivalDate}-->
+<!--                </td>-->
                 <td>
-                    {departureDate}
+                    {fBookSubmit}
                 </td>
-                <td>
-                    {arrivalDate}
-                </td>
-                <td>
-                    {bookSubmit}
-                </td>
-
             </tr>
         </table>
+        </form>
     </div>
 </div>
 
