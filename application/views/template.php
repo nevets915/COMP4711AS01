@@ -18,11 +18,6 @@ if (!defined('APPPATH'))
     <title>AirLines</title>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="all">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
-    <link rel="stylesheet" href="assets/css/layout.css" type="text/css" media="all">
-
     <!--    bootstrap 3-->
     <script src="assets/js/bootstrap.min.js"></script>
 
