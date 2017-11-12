@@ -134,12 +134,20 @@ class Welcome extends Application {
     function submit(){
 
         $flights = $this -> flights_model -> all();
+        $airports = $this -> wacky -> airports();
+        $airlines = $this -> wacky -> airlines();
 
         $departure = $this->input->post('DepartureAirport');
         $arrival   = $this->input->post('ArrivalAirport');
 
-        $this->data['selectedDeparture'] = $departure;
-        $this->data['selectedArrival'] = $arrival;
+        $departureID = $this->getAirportID($departure);
+        $arrivalID = $this->getAirportID($arrival);
+
+        $this->data['selectedDeparture'] = $departureID;
+        $this->data['selectedArrival'] = $arrivalID;
+        $this->data['results'][] = array('1d' => '', '1f' => '',
+                                         '2d' => '', '2f' => '',
+                                         '3d' => '', '3f' => '');
 
         $results = array();
 
@@ -150,15 +158,60 @@ class Welcome extends Application {
                     $results[$flight->PlaneID] = $flight;
                 }
             }
+
+            foreach ($airlines as $airline){
+                if($this->match($departureID, $arrivalID, $airline)) {
+                    $this->data['results'][] = array(
+                        '1d'    => $this->getAirportName($airline['dest1']),
+                        '2d'    => $airline['dest2'] == $arrivalID || $airline['dest3'] == $arrivalID
+                                  ? $this->getAirportName($airline['dest2']) : '',
+                        '3d'    => $airline['dest3'] == $arrivalID
+                                  ? $this->getAirportName($airline['dest3']) : '',
+                        '1f'    => '',
+                        '2f'    => '',
+                        '3f'    => ''
+                    );
+                }
+            }
+
             $this -> data['errorMsg'] = '';
+
         } else {
             $this -> data['errorMsg'] = 'departure and arrival should be different';
         }
 
-
         $this -> data['pagebody'] = 'bookTemplate';
         $this -> data['flight'] = $results;
         $this -> render();
+    }
+
+    function match($from, $to, $record) {
+        return $record['base'] == $from
+            && ($record['dest1'] == $to
+            || $record['dest2'] == $to
+            || $record['dest3'] == $to);
+    }
+
+    function getAirportID($name) {
+        $airports = $this -> wacky -> airports();
+
+        foreach ($airports as $airport){
+            if($airport['airport'] == $name)
+                $result = $airport['id'];
+        }
+
+        return $result;
+    }
+
+    function getAirportName($id) {
+        $airports = $this -> wacky -> airports();
+
+        foreach ($airports as $airport){
+            if($airport['id'] == $id)
+                $result = $airport['airport'];
+        }
+
+        return $result;
     }
 
     function book(){
