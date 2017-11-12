@@ -41,7 +41,6 @@ class Flights_Model extends CSV_Model
     {
         $config = array(
         ['field' => 'ArrivalAirport', 'label' => 'Arrival Airport', 'rules' => 'differs[DepartureAirport]'],
-        ['field' => 'PlaneId', 'label' => 'Plane ID', 'rules' => 'alpha_numeric_spaces|max_length[1]'],
         ['field' => 'DepartureTime', 'label' => 'Departure Time', 'rules' => 'required|differs[ArrivalTime]|alpha_numeric[max_length[5]'],
         ['field' => 'ArrivalTime', 'label' => 'Arrival Time', 'rules' => 'required|alpha_numeric[max_length[5]'],
         );
