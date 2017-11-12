@@ -43,15 +43,6 @@ class Flight extends CI_Model
         $this->$key = $value;
         return $this;
     }
-    
-    public function setId($value)
-    {
-        if (is_int($value)) {
-            $this->task = $value;
-            return true;
-        }
-        return false;
-    }
         
     public function setDestination($value)
     {
@@ -91,7 +82,7 @@ class Flight extends CI_Model
     
     public function setArrivalTime($value)
     {
-        if (preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/i', $value)) {
+        if (preg_match('/^([0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/i', $value)) {
             $this->task = $value;
             return true;
         }
@@ -100,7 +91,7 @@ class Flight extends CI_Model
     
     public function setDepuartureTime($value)
     {
-        if (preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/i', $value)) {
+        if (preg_match('/^([0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/i', $value)) {
             $this->task = $value;
             return true;
         }
