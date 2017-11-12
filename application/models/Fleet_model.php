@@ -21,6 +21,4 @@ class Fleet_Model extends CSV_Model
                 $results[] = $key;
             return $results;
     }
-        return $config;
-    }
 }
