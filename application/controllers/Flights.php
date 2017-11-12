@@ -89,10 +89,10 @@ class Flights extends Application
             }
 
             $fields = array(
-                'fdestination'  => form_label('Destination') . form_input('Destination', $flight->Destination),
-                'farrivalairport'  => form_label('Arrival Airport') . form_input('ArrivalAirport', $flight->ArrivalAirport),
-                'fdeparteairport'  => form_label('Departure Airport') . form_input('DepartureAirport', $flight->DepartureAirport),
-                'fplaneid'  => form_label('Plane ID') . form_input('PlaneID', $flight->PlaneID),
+                'fdestination'  => form_label('Destination') . form_dropdown('Destination', $this->flights_model->destinationIds()),
+                'farrivalairport'  => form_label('Arrival Airport') . form_dropdown('ArrivalAirport', $this->flights_model->airportNames()),
+                'fdeparteairport'  => form_label('Departure Airport') . form_dropdown('DepartureAirport', $this->flights_model->airportNames()),
+                'fplaneid'  => form_label('Plane ID') . form_dropdown('PlaneID', $this->fleet_model->planeIds()),
                 'fdeparturetime'  => form_label('Departure Time') . form_input('DepartureTime', $flight->DepartureTime),
                 'farrivaltime'  => form_label('Arrival Time') . form_input('ArrivalTime', $flight->ArrivalTime),
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
