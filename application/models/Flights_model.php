@@ -15,6 +15,7 @@ class Flights_Model extends CSV_Model
         $this->airports = $this->wacky->airports();
     }
 
+
     public function flightsDepartures(){
 
         $results = array();
@@ -23,14 +24,14 @@ class Flights_Model extends CSV_Model
 
         foreach ($flights as $flight){
             if(!in_array($flight->DepartureAirport, $results))
-                array_push($results, $flight->DepartureAirport);
+                $results[$flight->DepartureAirport]= $flight->DepartureAirport;
         }
 
 
         return $results;
     }
 
-    public function flightsArrival(){
+    public function flightsArrivals(){
 
         $results = array();
 
@@ -38,7 +39,7 @@ class Flights_Model extends CSV_Model
 
         foreach ($flights as $flight){
             if(!in_array($flight->ArrivalAirport, $results))
-                array_push($results, $flight->ArrivalAirport);
+                $results[$flight->ArrivalAirport]= $flight->ArrivalAirport;
         }
 
 

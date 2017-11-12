@@ -3,6 +3,9 @@
 
 class Welcome extends Application {
 
+    private $departure;
+    private $arrival;
+
 	function __construct() {
 		parent::__construct();
         $this->load->model('Flights_model');
@@ -39,7 +42,7 @@ class Welcome extends Application {
             'fDepAirport'   => form_label('Departure Airport')
                                 .form_dropdown('DepartureAirport', $this->flights_model->flightsDepartures()),
             'fArrAirport'   => form_label('Arrival Airport')
-                                .form_dropdown('ArrivalAirport', $this->flights_model->flightsArrival()),
+                                .form_dropdown('ArrivalAirport', $this->flights_model->flightsArrivals()),
             'fBookSubmit'   => form_submit('submit', 'Search')
         );
 
@@ -52,8 +55,7 @@ class Welcome extends Application {
 //        $depDate = array(
 //            'name' => 'depDate_name',
 //            'id' => 'depDate_id',
-//            'placeholder' => $date
-//        );
+//            'placeholder' => $dth
 //
 //        $arrDate = array(
 //            'name' => 'arrDate_name',
@@ -125,29 +127,20 @@ class Welcome extends Application {
 //        // order them by priority
 ////        usort($undone, "orderByPriority");
 
-
         return $flights;
     }
 
+
     function submit(){
 
-        $this -> load -> helper('form');
+        $departure = $this->input->post('DepartureAirport');
+        $arrival   = $this->input->post('ArrivalAirport');
 
-        $data = array(
-            'ArrivalAirport' => $this -> input -> get('ArrivalAirport'),
-            'DepartureAirport' => $this -> input -> get('DepartureAirport')
-        );
 
-        if(empty($data)){
-            $this->data['selectedDeparture'] = 'Empty';
-            $this->data['selectedArrival'] = 'Empty';
-            $this->data['errorMsg'] = "No value from before, please go back to home and retry";
-        } else {
-        }
+        $this->data['selectedDeparture'] = $departure;
+        $this->data['selectedArrival'] = $arrival;
 
-        $this -> data['selectedDeparture'] = '';
-        $this -> data['selectedArrival'] = '';
-        $this -> data['errorMsg'] = $this -> input -> get('fDepAirport');
+
 
         $this -> data['pagebody'] = 'bookTemplate';
         $this -> render();
