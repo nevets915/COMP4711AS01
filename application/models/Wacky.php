@@ -13,6 +13,7 @@
  */
 class Wacky
 {
+    private $airports, $airlines, $airplanes, $regions;
     
     /*
      * Purpose: List the participating airlines
@@ -22,7 +23,8 @@ class Wacky
     public function airlines()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/airlines/');
-        return json_decode($response, TRUE);
+        $this->airlines = json_decode($response, TRUE);
+        return $this->airlines;
     }
     
     /*
@@ -33,7 +35,8 @@ class Wacky
     public function airports()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/airports/');
-        return json_decode($response, TRUE);
+        $this->airports = json_decode($response, TRUE);
+        return $this->airports;
     }
     
     /*
@@ -44,7 +47,8 @@ class Wacky
     public function airplanes()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/airplanes/');
-        return json_decode($response, TRUE);
+        $this->airplanes = json_decode($response, TRUE);
+        return $this->airplanes;
     }
     
     /*
@@ -55,6 +59,27 @@ class Wacky
     public function regions()
     {
         $response = file_get_contents('https://wacky.jlparry.com/info/regions/');
-        return json_decode($response, TRUE);
-    }    
+        $this->regions = json_decode($response, TRUE);
+        return $this->regions;
+    }
+
+    public function destinationIds()
+    {
+        $destinationIds = array();
+        foreach($this->airports as $airport)
+        {
+            array_push($destinationIds, $airport['id']);
+        }
+        return $destinationIds;
+    }
+    
+    public function airportNames()
+    {
+        $destinationAirports = array();
+        foreach($this->airports as $airport)
+        {
+            array_push($destinationAirports, $airport['airport']);
+        }
+        return $destinationAirports;
+    }
 }
