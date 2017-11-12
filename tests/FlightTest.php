@@ -28,15 +28,13 @@ class FlightTest extends PHPUnit_Framework_TestCase
     
     public function testFlightsFlight()
     {
-        $idSet = $this->CI->tasks->setId(1);
-        $destinationSet = $this->CI->tasks->setDestination('YAZ');
-        $arrivalAirportSet = $this->CI->tasks->setArrivalAirport('Tofino/Long Beach Airport');
-        $departureAirportSet = $this->CI->tasks->setDepartureAirport('Nanaimo Airport');
-        $planeIdSet = $this->CI->tasks->setPlaneId('BB_avanti_001');
-        $departureTimeSet = $this->CI->tasks->setDepartureTime('8:00');
-        $arrivalTimeSet = $this->CI->tasks->setArrivalTime('8:50');
+        $destinationSet = $this->CI->flight->setDestination('YAZ');
+        $arrivalAirportSet = $this->CI->flight->setArrivalAirport('Long Beach Airport');
+        $departureAirportSet = $this->CI->flight->setDepartureAirport('Nanaimo Airport');
+        $planeIdSet = $this->CI->flight->setPlaneId('BB_avanti_001');
+        $departureTimeSet = $this->CI->flight->setDepartureTime('8:00');
+        $arrivalTimeSet = $this->CI->flight->setArrivalTime('8:50');
         
-        $this->assertTrue($idSet);
         $this->assertTrue($destinationSet);
         $this->assertTrue($arrivalAirportSet);
         $this->assertTrue($departureAirportSet);
@@ -47,15 +45,13 @@ class FlightTest extends PHPUnit_Framework_TestCase
     
     public function testFlightsFlightFailure()
     {
-        $idSet = $this->CI->tasks->setId(1.0);
-        $destinationSet = $this->CI->tasks->setDestination('YAZA');
-        $arrivalAirportSet = $this->CI->tasks->setArrivalAirport(25);
-        $departureAirportSet = $this->CI->tasks->setDepartureAirport(50);
-        $planeIdSet = $this->CI->tasks->setPlaneId('BB avanti 001');
-        $departureTimeSet = $this->CI->tasks->setDepartureTime('118:00');
-        $arrivalTimeSet = $this->CI->tasks->setArrivalTime('8:50a');
+        $destinationSet = $this->CI->flight->setDestination('YAZA');
+        $arrivalAirportSet = $this->CI->flight->setArrivalAirport(25);
+        $departureAirportSet = $this->CI->flight->setDepartureAirport(50);
+        $planeIdSet = $this->CI->flight->setPlaneId('BB avanti 001');
+        $departureTimeSet = $this->CI->flight->setDepartureTime('118:00');
+        $arrivalTimeSet = $this->CI->flight->setArrivalTime('8:50a');
         
-        $this->assertFalse($idSet);
         $this->assertFalse($destinationSet);
         $this->assertFalse($arrivalAirportSet);
         $this->assertFalse($departureAirportSet);

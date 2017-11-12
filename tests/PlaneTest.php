@@ -28,15 +28,15 @@
     
     public function testFleetPlane()
     {
-        $idSet = $this->CI->tasks->setId('BB_avanti_001');
-        $manufacturerSet = $this->CI->tasks->setManufacturer('Piaggo');
-        $modelSet = $this->CI->tasks->setModel('Avanti II');
-        $priceSet = $this->CI->tasks->setPrice(1000);
-        $seatSet = $this->CI->tasks->setSeats(2797);
-        $reachSet = $this->CI->tasks->setReach(2797);
-        $cruiseSet = $this->CI->tasks->setCruise(589);
-        $takeoffSet = $this->CI->tasks->setTakeoff(994);
-        $hourlySet = $this->CI->tasks->setHourly(977);
+        $idSet = $this->CI->plane->setId('BB_avanti_001');
+        $manufacturerSet = $this->CI->plane->setManufacturer('Piaggo');
+        $modelSet = $this->CI->plane->setModel('Avanti II');
+        $priceSet = $this->CI->plane->setPrice(1000);
+        $seatSet = $this->CI->plane->setSeats(2797);
+        $reachSet = $this->CI->plane->setReach(2797);
+        $cruiseSet = $this->CI->plane->setCruise(589);
+        $takeoffSet = $this->CI->plane->setTakeoff(994);
+        $hourlySet = $this->CI->plane->setHourly(977);
         
         $this->assertTrue($idSet);
         $this->assertTrue($manufacturerSet);
@@ -51,15 +51,15 @@
     
     public function testFleetPlaneFailure()
     {
-        $idSet = $this->CI->tasks->setId('BB avanti 001');
-        $manufacturerSet = $this->CI->tasks->setManufacturer(7);
-        $modelSet = $this->CI->tasks->setModel(20);
-        $priceSet = $this->CI->tasks->setPrice('testing');
-        $seatSet = $this->CI->tasks->setSeats(2589.056);
-        $reachSet = $this->CI->tasks->setReach(43.879);
-        $cruiseSet = $this->CI->tasks->setCruise('hello');
-        $takeoffSet = $this->CI->tasks->setTakeoff('goodbye');
-        $hourlySet = $this->CI->tasks->setHourly(897.0234);
+        $idSet = $this->CI->plane->setId('BB avanti 001');
+        $manufacturerSet = $this->CI->plane->setManufacturer(7);
+        $modelSet = $this->CI->plane->setModel(20);
+        $priceSet = $this->CI->plane->setPrice('testing');
+        $seatSet = $this->CI->plane->setSeats(2589.056);
+        $reachSet = $this->CI->plane->setReach(43.879);
+        $cruiseSet = $this->CI->plane->setCruise('hello');
+        $takeoffSet = $this->CI->plane->setTakeoff('goodbye');
+        $hourlySet = $this->CI->plane->setHourly(897.0234);
         
         $this->assertFalse($idSet);
         $this->assertFalse($manufacturerSet);

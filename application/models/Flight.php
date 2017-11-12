@@ -55,7 +55,7 @@ class Flight extends CI_Model
    
     public function setArrivalAirport($value)
     {
-        if (preg_match('/^[A-Z/ ()]+$/i', $value)) {
+        if (preg_match('/^[A-Z\/ \(\)]+$/i', $value)) {
             $this->task = $value;
             return true;
         }
@@ -64,7 +64,7 @@ class Flight extends CI_Model
     
     public function setDepartureAirport($value)
     {
-        if (preg_match('/^[A-Z/ ()]+$/i', $value)) {
+        if (preg_match('/^[A-Z\/ \(\)]+$/i', $value)) {
             $this->task = $value;
             return true;
         }
@@ -89,7 +89,7 @@ class Flight extends CI_Model
         return false;
     }
     
-    public function setDepuartureTime($value)
+    public function setDepartureTime($value)
     {
         if (preg_match('/^([0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/i', $value)) {
             $this->task = $value;
