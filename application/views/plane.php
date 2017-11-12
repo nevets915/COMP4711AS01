@@ -13,31 +13,31 @@
             </tr>
             <tr>
                 <td>manufacturer</td>
-                <td>{manufacturer}</td>
+                <td>{Manufacturer}</td>
             </tr>
             <tr>
                 <td>model</td>
-                <td>{model}</td>
+                <td>{Model}</td>
             </tr>
             <tr>
                 <td>seats</td>
-                <td>{seats}</td>
+                <td>{Seats}</td>
             </tr>
             <tr>
                 <td>reach</td>
-                <td>{reach}</td>
+                <td>{Reach}</td>
             </tr>
             <tr>
                 <td>cruise</td>
-                <td>{cruise}</td>
+                <td>{Cruise}</td>
             </tr>
             <tr>
                 <td>takeoff</td>
-                <td>{takeoff}</td>
+                <td>{Takeoff}</td>
             </tr>
             <tr>
                 <td>hourly</td>
-                <td>{hourly}</td>
+                <td>{Hourly}</td>
             </tr>
         </tbody>
     </table>

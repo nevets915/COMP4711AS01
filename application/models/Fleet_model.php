@@ -21,4 +21,14 @@ class Fleet_Model extends CSV_Model
                 $results[] = $key;
             return $results;
     }
+    
+        // provide form validation rules
+    public function rules()
+    {
+        $config = array(
+        ['field' => 'Manufacturer', 'label' => 'Manufacturer', 'rules' => 'required'],
+        ['field' => 'Model', 'label' => 'Model', 'rules' => 'required'],
+        );
+        return $config;
+    }
 }

@@ -5,7 +5,6 @@
 <br />
 <br />
 <form role="form" action="/flights/submit" method="post">
-    
     {fdestination}
     {farrivalairport}
     {fdeparteairport}
