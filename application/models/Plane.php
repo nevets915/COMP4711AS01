@@ -7,7 +7,7 @@
  */
 
 /**
- * Description of Plane
+ * Plane entity model
  *
  * @author namblue
  */
