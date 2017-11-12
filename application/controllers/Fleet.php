@@ -38,10 +38,10 @@ class Fleet extends Application
 
             // build the list of authors, to pass on to our view
             $source = $this->fleet_model->all();
-
+            
             // pass on the data to present, as the "authors" view parameter
             $this->data['fleet'] = $source;
-
+            $this->wacky->getPrice('Piaggo', 'Avanti II');
             $this->render();
 	}
         

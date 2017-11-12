@@ -20,6 +20,10 @@
                 <td>{Model}</td>
             </tr>
             <tr>
+                <td>price</td>
+                <td>{Price}</td>
+            </tr>
+            <tr>
                 <td>seats</td>
                 <td>{Seats}</td>
             </tr>

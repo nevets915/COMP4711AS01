@@ -31,4 +31,14 @@ class Fleet_Model extends CSV_Model
         );
         return $config;
     }
+    
+    public function totalPrice()
+    {
+        $results = 0;
+        foreach ($this->_data as $key => $record)
+        {
+            $results += (int)($record->Price);
+        }
+        return $results;
+    }
 }
