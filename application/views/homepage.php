@@ -135,7 +135,6 @@
 
     <div class="col">
         <h3>Booking</h3>
-        {debug}
         <form role="form" action="/welcome/submit" method="post">
         <table>
             <tr>

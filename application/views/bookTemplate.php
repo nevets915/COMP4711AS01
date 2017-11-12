@@ -1,7 +1,7 @@
 <h3>book add</h3>
 
-<p>ur departure {selectedDeparture}</p>
-<p>ur arrival {selectedArrival}</p>
+<p>Departure: {selectedDeparture}</p>
+<p>Arrival: {selectedArrival}</p>
 <span style="color: red">{errorMsg}</span>
 
 <table class="table">

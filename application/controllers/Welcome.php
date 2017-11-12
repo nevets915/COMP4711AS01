@@ -133,16 +133,31 @@ class Welcome extends Application {
 
     function submit(){
 
+        $flights = $this -> flights_model -> all();
+
         $departure = $this->input->post('DepartureAirport');
         $arrival   = $this->input->post('ArrivalAirport');
-
 
         $this->data['selectedDeparture'] = $departure;
         $this->data['selectedArrival'] = $arrival;
 
+        $results = array();
+
+        if($departure != $arrival){
+            foreach($flights as $flight){
+                if($flight -> DepartureAirport == $departure
+                && $flight -> ArrivalAirport == $arrival){
+                    $results[$flight->PlaneID] = $flight;
+                }
+            }
+            $this -> data['errorMsg'] = '';
+        } else {
+            $this -> data['errorMsg'] = 'departure and arrival should be different';
+        }
 
 
         $this -> data['pagebody'] = 'bookTemplate';
+        $this -> data['flight'] = $results;
         $this -> render();
     }
 
