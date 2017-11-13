@@ -147,6 +147,7 @@ Release Date: 11.10.17
         - Added unit testing
         - Added travis integration
         - Added session state
+	- Added FlightsTest
 
 ##### Updated Components
     - controllers
