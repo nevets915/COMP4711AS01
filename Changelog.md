@@ -131,18 +131,31 @@ Release Date: 11.09.17
 Release Date: 11.10.17
 
 #### New Components
+    - controllers
+        - Added user role switching
+    - models
+        - Added Wacky model to access server data
     - public
         - assets
             - css
-                - bootstrap.min.css
-                - bootstrap-responsive.min.css
+                - added bootstrap
+            - images
+                - new site logo
+    - others
+        - Added unit testing
+        - Added travis integration
+        - Added session state
 
 ##### Updated Components
     - controllers
         - Welcome.php
+    - models
+        - Fleet_model and Flights_model changed to CSV model
     - views
         - homepage.php
         - template.php
+        - fleet.php
+        - fleetedit.php
     - public
             - assets
                 - css
