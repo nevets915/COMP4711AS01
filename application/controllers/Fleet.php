@@ -119,13 +119,15 @@ class Fleet extends Application
             }
 
             $fields = array(
+                'hid'  => form_hidden('id', $flight->id),
                 'fmanufacturer'  => form_label('Manufacturer') . form_dropdown('Manufacturer', $this->wacky->manufacturers(), $flight->Manufacturer),
                 'fmodel'  => form_label('Model') . form_dropdown('Model', $this->wacky->models(), $flight->Model),
+                'fprice'  => form_label('Price') . form_input('Price', $flight->Price),
                 'fseats'  => form_label('Seats') . form_input('Seats', $flight->Seats),
                 'freach'  => form_label('Reach') . form_input('Reach', $flight->Reach),
                 'fcruise'  => form_label('Cruise') . form_input('Cruise', $flight->Cruise),
                 'ftakeoff'  => form_label('Takeoff') . form_input('Takeoff', $flight->Takeoff),
-                'fhourly'  => form_label('Hourly') . form_input('Hourly', $flight->Hourly),
+                'fhourly'  => form_label('Hourly') . form_input('Hourly', $flight->Hourly),                
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
             );
             $this->data = array_merge($this->data, $fields);
@@ -146,7 +148,7 @@ class Fleet extends Application
             $flight = array_merge($flight, $this->input->post());
             unset($flight['submit']);
             $flight = (object) $flight;  // convert back to object
-            $this->session->set_userdata('fleet', (object) $flight);
+            $this->session->set_userdata('flight', (object) $flight);
 
             // validate away
             if ($this->form_validation->run())
@@ -158,7 +160,8 @@ class Fleet extends Application
                     $flight->id = $id;
                     $this->fleet_model->add($flight);
                     $this->alert('Flight ' . $flight->id . ' added', 'success');
-                } else
+                } 
+                else
                 {
                     $this->fleet_model->update($flight);
                     $this->alert('Flight ' . $flight->id . ' updated', 'success');
@@ -179,7 +182,7 @@ class Fleet extends Application
 
         // Forget about this edit
         function cancel() {
-            $this->session->unset_userdata('fleet');
+            $this->session->unset_userdata('flight');
             redirect('/fleet');
         }
 
