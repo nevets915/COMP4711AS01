@@ -28,7 +28,7 @@
     
     public function testFleetPlane()
     {
-        $idSet = $this->CI->plane->setId('BB_avanti_001');
+        $idSet = $this->CI->plane->setId('BB001');
         $manufacturerSet = $this->CI->plane->setManufacturer('Piaggo');
         $modelSet = $this->CI->plane->setModel('Avanti II');
         $priceSet = $this->CI->plane->setPrice(1000);
