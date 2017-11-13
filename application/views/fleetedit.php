@@ -1,4 +1,4 @@
-<h1>Fleet ID: {id}</h1>
+<h1>Plane ID: {id}</h1>
 <br />
 <br />
 <br />

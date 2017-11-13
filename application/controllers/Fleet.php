@@ -31,6 +31,7 @@ class Fleet extends Application
 	{
             $role = $this->session->userdata('userrole');
             $this->data['pagetitle'] = 'Viewing as ('. $role . ')';
+            $this->page();
             
             // this is the view we want shown
             $this->data['pagebody'] = 'fleet';
