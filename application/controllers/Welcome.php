@@ -54,7 +54,7 @@ class Welcome extends Application {
             'fArrAirport2'   => form_label('Arrival Airport2')
                 .form_dropdown('ArrivalAirport2', $this->flights_model->flightsDepartures()),
             'fArrAirport3'   => form_label('Arrival Airport3')
-                .form_dropdown('ArrivalAirport3', $this->flights_model->flightsDepartures()),
+                .form_dropdown('ArrivalAirport3', $this->flights_model->flightsDeparturesWithNone()),
             'fBookSubmit2'        => form_submit('submit2', 'Search')
         );
 
@@ -196,67 +196,72 @@ class Welcome extends Application {
             $this -> data['select'] = '';
         } else {
             foreach($flights as $flight){
+                //for first flight
                 if($flight -> DepartureAirport == $departure
                     && $flight -> ArrivalAirport == $arrival1){
                     $results1[$flight->PlaneID] = $flight;
 
                 }
 
+                //for second flight
                 if($flight -> DepartureAirport == $arrival1
                     && $flight -> ArrivalAirport == $arrival2){
                     $results2[$flight->PlaneID] = $flight;
 
                 }
 
-                if($flight -> DepartureAirport == $arrival2
-                    && $flight -> ArrivalAirport == $arrival3){
+                //for third flight
+                if($arrival3 != 'None'){
+                    if($flight -> DepartureAirport == $arrival2
+                        && $flight -> ArrivalAirport == $arrival3){
 
-                    $results3[$flight->PlaneID] = $flight;
+                        $results3[$flight->PlaneID] = $flight;
 
+                    }
                 }
             }
 
             if(!empty($results1)) {
                 $this -> data['flight1'] = $results1;
-              
-
+                $this -> data['errorMsg1'] = '';
             } else {
+                $this -> data['errorMsg1'] = 'can not find a flight';
                 $this -> data['flight1'][] = array(
-                    'PlaneID'=> '',
-                    'DepartureAirport'=> '',
-                    'ArrivalAirport'=> '',
-                    'DepartureTime'=> '',
-                    'ArrivalTime'=> '',
-                    'select'=> '');
+                    'PlaneID'=> 'none',
+                    'DepartureAirport'=> 'none',
+                    'ArrivalAirport'=> 'none',
+                    'DepartureTime'=> 'none',
+                    'ArrivalTime'=> 'none',
+                    'select'=> 'none');
             }
 
             if(!empty($results2)){
                 $this -> data['flight2'] = $results2;
-                $this -> data['select'] = form_submit('book', 'Select');
-
+                $this -> data['errorMsg2'] = '';
             } else {
+                $this -> data['errorMsg2'] = 'can not find a flight';
                 $this -> data['flight2'][] = array(
-                            'PlaneID'=> '',
-                            'DepartureAirport'=> '',
-                            'ArrivalAirport'=> '',
-                            'DepartureTime'=> '',
-                            'ArrivalTime'=> '',
-                            'select'=> '');
+                            'PlaneID'=> 'none',
+                            'DepartureAirport'=> 'none',
+                            'ArrivalAirport'=> 'none',
+                            'DepartureTime'=> 'none',
+                            'ArrivalTime'=> 'none',
+                            'select'=> 'none');
             }
 
             if(!empty($results3)){
                 $this -> data['flight3'] = $results3;
-                $this -> data['select'] = form_submit('book', 'Select');
-
+                $this -> data['errorMsg3'] = '';
 
             } else {
+                $this -> data['errorMsg3'] = 'can not find a flight';
                 $this -> data['flight3'][] = array(
-                    'PlaneID'=> '',
-                    'DepartureAirport'=> '',
-                    'ArrivalAirport'=> '',
-                    'DepartureTime'=> '',
-                    'ArrivalTime'=> '',
-                    'select'=> '');
+                    'PlaneID'=> 'none',
+                    'DepartureAirport'=> 'none',
+                    'ArrivalAirport'=> 'none',
+                    'DepartureTime'=> 'none',
+                    'ArrivalTime'=> 'none',
+                    'select'=> 'none');
             }
 
 

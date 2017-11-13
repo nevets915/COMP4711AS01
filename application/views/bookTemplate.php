@@ -5,7 +5,7 @@
 <span style="color: red">{errorMsg}</span>
 
 <tr class="table">
-    <form role="form" action="{selector1}" method="post">
+    <form role="form" action="book" method="post">
     <table>
         <h3>Non-stop</h3>
         <tr style="background-color: #0e0e0e; color: #ffffff;">

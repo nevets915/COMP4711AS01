@@ -28,6 +28,22 @@ class Flights_Model extends CSV_Model
         return $results;
     }
 
+    public function flightsDeparturesWithNone(){
+
+        $results = array();
+
+        $flights = $this -> all();
+
+        foreach ($flights as $flight){
+            if(!in_array($flight->DepartureAirport, $results))
+                $results[$flight->DepartureAirport]= $flight->DepartureAirport;
+        }
+
+        $results['None']= 'none';
+
+        return $results;
+    }
+
     public function flightsArrivals(){
 
         $results = array();

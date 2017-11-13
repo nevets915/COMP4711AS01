@@ -8,10 +8,10 @@
 <span style="color: red">{errorMsg}</span>
 
 <tr class="table">
-    <form role="form" action="{selector2}" method="POST">
+    <form role="form" action="book" method="POST">
     <h3>Stops</h3>
 
-    <h5>1st Flight</h5>
+    <h5>1st Flight</h5><span style="color: red">{errorMsg1}</span>
     <table>
         <tr style="background-color: #0e0e0e; color: #ffffff;">
             <th >
@@ -54,7 +54,7 @@
         {/flight1}
     </table>
 
-    <h5>2nd Flight</h5>
+    <h5>2nd Flight</h5><span style="color: red">{errorMsg2}</span>
     <table>
 
         <tr style="background-color: #0e0e0e; color: #ffffff;">
@@ -98,7 +98,7 @@
         {/flight2}
     </table>
 
-    <h5>3rd Flight</h5>
+    <h5>3rd Flight</h5><span style="color: red">{errorMsg3}</span>
     <table>
         <tr style="background-color: #0e0e0e; color: #ffffff;">
             <th >
