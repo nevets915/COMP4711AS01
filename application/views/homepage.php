@@ -135,43 +135,51 @@
 
     <div class="col">
         <h3>Booking</h3>
+        <h4>One-Stop</h4>
+        <form role="form" action="/welcome/submit" method="post">
         <table>
             <tr>
-                <th>
-                    Departure
-                </th>
-                <th>
-                    Arrival
-                </th>
-                <th>
-                    Dept. Date (YYYY-MM-DD)
-                </th>
-                <th>
-                    Arrv. Date (YYYY-MM-DD)
-                </th>
-                <th>
-
-                </th>
-            </tr>
-            <tr>
                 <td>
-                    {depAirport}
+                    {fDepAirport}
                 </td>
                 <td>
-                    {ariAirport}
+                    {fArrAirport}
                 </td>
+<!--                <td>-->
+<!--                    {departureDate}-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    {arrivalDate}-->
+<!--                </td>-->
                 <td>
-                    {departureDate}
+                    {fBookSubmit}
                 </td>
-                <td>
-                    {arrivalDate}
-                </td>
-                <td>
-                    {bookSubmit}
-                </td>
-
             </tr>
         </table>
+        </form>
+
+        <h4>MultiStop</h4>
+        <form role="form" action="/welcome/submit2" method="post">
+            <table>
+                <tr>
+                    <td>
+                        {fDepAirport1}
+                    </td>
+                    <td>
+                        {fArrAirport1}
+                    </td>
+                    <td>
+                        {fArrAirport2}
+                    </td>
+                    <td>
+                        {fArrAirport3}
+                    </td>
+                    <td>
+                        {fBookSubmit2}
+                    </td>
+                </tr>
+            </table>
+        </form>
     </div>
 </div>
 
@@ -268,21 +276,21 @@
             </tr>
             {flight}
             <tr>
-                    <td style="text-align: left;" class="pad_left1">
-                        {PlaneId}
-                    </td>
-                    <td>
-                        {DepartureAirport}
-                    </td>
-                    <td>
-                        {ArrivalAirport}
-                    </td>
-                    <td>
-                        {DepartureTime}
-                    </td>
-                    <td>
-                        {ArrivalTime}
-                    </td>
+                <td style="text-align: left;" class="pad_left1">
+                    {PlaneId}
+                </td>
+                <td>
+                    {DepartureAirport}
+                </td>
+                <td>
+                    {ArrivalAirport}
+                </td>
+                <td>
+                    {DepartureTime}
+                </td>
+                <td>
+                    {ArrivalTime}
+                </td>
             </tr>
             {/flight}
         </table>

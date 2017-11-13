@@ -12,6 +12,36 @@ class Flights_Model extends CSV_Model
         parent::__construct(APPPATH . '../data/flights.csv', 'id');
         $this->airports = $this->wacky->airports();
     }
+
+    public function flightsDepartures(){
+
+        $results = array();
+
+        $flights = $this -> all();
+
+        foreach ($flights as $flight){
+            if(!in_array($flight->DepartureAirport, $results))
+                $results[$flight->DepartureAirport]= $flight->DepartureAirport;
+        }
+
+
+        return $results;
+    }
+
+    public function flightsArrivals(){
+
+        $results = array();
+
+        $flights = $this -> all();
+
+        foreach ($flights as $flight){
+            if(!in_array($flight->ArrivalAirport, $results))
+                $results[$flight->ArrivalAirport]= $flight->ArrivalAirport;
+        }
+
+
+        return $results;
+    }
     
     // provide form validation rules
     public function rules()
