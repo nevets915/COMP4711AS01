@@ -1,18 +1,22 @@
+{pagetitle}
+
 <div class="tables">
     <table>        
         <thead>
             <tr>
-               <th>Fleet ID</th>
+               <th>Plane ID</th>
                <th>Model </th>
             </tr>
         </thead>        
         <tbody>
             {fleet}
                 <tr>
-                    <td><a href="fleet/show/{key}">{id}</a></td>
-                    <td>{model}</td>
+                    <td><a href="fleet/show/{id}">{id}</a></td>
+                    <td>{Model}</td>
                 </tr>
             {/fleet}
         </tbody>
     </table>
 </div>
+<br/>
+{add}

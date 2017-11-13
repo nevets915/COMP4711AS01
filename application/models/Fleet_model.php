@@ -1,57 +1,60 @@
 <?php
 
 /**
- * This is a "CMS" model for quotes, but with bogus hard-coded data,
- * so that we don't have to worry about any database setup.
- * This would be considered a "mock database" model.
+ * This is a collection entity model for a fleet
  *
- * @author jim
+ * @author namblue
  */
-class Fleet_Model extends CI_Model
+class Fleet_Model extends CSV_Model
 {
+    public function __construct()
+    {
+        parent::__construct(APPPATH . '../data/fleet.csv', 'id');        
+    }
+    
+    public function count()
+    {
+        $results = 0;
+            foreach ($this->_data as $key => $record)
+                $results++;
+            return $results;
+    }
 
-    var $fleets = array(
-        '0' => array(
-            'id'            => "BB_avanti_001",
-            'manufacturer'  => "Piaggo",
-            'model'         => "Avanti II",
-            'seats'         => "8",
-            'reach'         => "2797",
-            'cruise'        => "589",
-            'takeoff'       => "994",
-            'hourly'        => "977"
-        ),
-        '1' => array(
-            'id' => "BB_caravan_001",
-            'manufacturer' => "Cessna",
-            'model' => "Grand Caravan EX",
-            'seats' => "14",
-            'reach' => "1689",
-            'cruise' => "340",
-            'takeoff' => "660",
-            'hourly' => "389"
-        )
-    );
-
-
-    public function __construct(){
-        parent::__construct();
-
-        // inject each "record" key into the record itself, for ease of presentation
-        foreach ($this-> fleets as $key => $record)
+    /*
+     * Returns a list of plane ids from the csv file
+     */
+    public function planeIds()
+    {
+            $results = array();
+            foreach ($this->_data as $key => $record)
+                $results[] = $key;
+            return $results;
+    }
+    
+        // provide form validation rules
+    public function rules()
+    {
+        $config = array(
+        ['field' => 'price', 'label' => 'Price', 'rules' => 'required|numeric'],
+        ['field' => 'seats', 'label' => 'Seats', 'rules' => 'required|numeric'],
+        ['field' => 'reach', 'label' => 'Reach', 'rules' => 'required|numeric'],
+        ['field' => 'cruise', 'label' => 'Cruise', 'rules' => 'required|numeric'],
+        ['field' => 'takeoff', 'label' => 'Takeoff', 'rules' => 'required|numeric'],
+        ['field' => 'hourly', 'label' => 'Hourly', 'rules' => 'required|numeric'],
+        );
+        return $config;
+    }
+    
+    /*
+     * Returns the total price of all planes in the fleet csv file
+     */
+    public function totalPrice()
+    {
+        $results = 0;
+        foreach ($this->_data as $key => $record)
         {
-            $record['key'] = $key;
-            $this->fleets[$key] = $record;
+            $results += (int)($record->Price);
         }
-    }
-
-    // retrieve a single quote, null if not found
-    public function get($which) {
-        return !isset($this->fleets[$which]) ? null : $this->fleets[$which];
-    }
-
-    // retrieve all of the quotes
-    public function all(){
-        return $this->fleets;
+        return $results;
     }
 }

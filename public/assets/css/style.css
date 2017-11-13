@@ -117,6 +117,7 @@ h4 {
 p {
 	padding-bottom:18px
 }
+
 /* header */
 header {
 	height:230px;
@@ -126,9 +127,9 @@ header {
 }
 #logo {
 	display:block;
-	background:url(../images/logo_1.png) 0 0 no-repeat;
+	background:url(../images/logo.png) 0 0 no-repeat;
 	width:120px;
-	height:104px;
+	height:120px;
 	text-indent:-9999px
 }
 #slogan {
@@ -164,7 +165,7 @@ header {
 	background:url(../images/img_top3.gif) center 0 no-repeat
 }
 #menu {
-	padding:27px 0 0 42px
+	padding:1px 0 0 42px
 }
 #menu li {
 	float:left;
@@ -204,7 +205,8 @@ header {
 #content {
 	width:100%;
 	overflow:hidden;
-	padding-bottom:14px
+	padding-bottom:14px;
+        min-height: 600px;
 }
 .for_banners {
 	background:url(../images/bg_top_img.jpg) 0 0 no-repeat;
@@ -286,7 +288,6 @@ header {
 	-webkit-box-shadow:0 0 3px #d0d0d0;
 	position:relative;
 	padding:1px;
-	top:40px;
 	padding-bottom:20px
 }
 .tabs .tab-content {
@@ -338,7 +339,6 @@ header {
 	-webkit-box-shadow:0 0 3px #d0d0d0;
 	position:relative;
 	padding:1px;
-	top:40px;
 	padding-bottom:20px
 }
 .tabs2 .tab-content {

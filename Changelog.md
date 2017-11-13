@@ -9,6 +9,8 @@
 Team conventions: Allman notation, markdown for changelog  
 Changelog format: [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) 
 
+Date format is: MM.DD.YY
+
 ## Log Changes
 1. SK: Initialized the changelog.md 
 
@@ -87,8 +89,51 @@ Release Date: 10.08.17
         - flightpage view created
         - template view fixed
 
-### Version 1.2.1 - SK
-Release Date: 10.11.17
+### Version 1.2.1 - SM
+Release Date: 11.10.17
     - bugfixes
         - Model naming convention changed
         - Model key naming convention changed
+
+### Version 2.0.0 - SM
+Release Date: 11.09.17
+
+##### New Components
+    - controllers
+        - Fleet
+        - Flights
+    - model
+        - Fleet_Model(recreated)
+        - Flights_Model
+    - view
+        - fleet
+        - plane
+        - flights
+        - bookResult
+        - bookTemplate
+        - bookTemplate2
+
+##### Updated Components
+    - controllers
+        - Roles added
+        - Welcome
+    - model
+        - Fleet(renamed)
+        - Airline(renamed)
+        - Airplane(renamed)
+        - Airport(renamed)
+        - Region(renamed)
+        - flight_models
+    - views
+        - fleetadd added
+        - homepage
+	- flightadd added
+    - Other
+	- Added session and parsedown to autoload libraries
+	- Added Admin and Guest constants
+	- Bug fix for plane view Fleet controller
+	- Changed Travis.yml to php 5.6.  Problems with unit testing for 7.1
+	- Added FleetTest, FlightTest and PlaneTest
+
+	- Added FlightsTest
+                                        - style.css
