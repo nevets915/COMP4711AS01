@@ -8,7 +8,7 @@
 <span style="color: red">{errorMsg}</span>
 
 <tr class="table">
-    <form role="form" action="book" method="POST">
+    <form role="form" action="book2" method="POST">
     <h3>Stops</h3>
 
     <h5>1st Flight</h5><span style="color: red">{errorMsg1}</span>
@@ -48,7 +48,7 @@
                 {ArrivalTime}
             </td>
             <td>
-                <input type='checkbox' name='plane1{id}' />
+                <input type='radio' name='1' value="{id}" />
             </td>
         </tr>
         {/flight1}
@@ -92,7 +92,7 @@
                 {ArrivalTime}
             </td>
             <td>
-                <input type='checkbox' name='plane2{id}' />
+                <input type='radio' name='2' value="{id}" />
             </td>
         </tr>
         {/flight2}
@@ -135,7 +135,7 @@
                 {ArrivalTime}
             </td>
             <td>
-                <input type='checkbox' name='plane3{id}' />
+                <input type='radio' name='3' value="{id}" />
             </td>
         </tr>
         {/flight3}
