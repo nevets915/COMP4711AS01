@@ -135,4 +135,5 @@ Release Date: 11.09.17
 	- Changed Travis.yml to php 5.6.  Problems with unit testing for 7.1
 	- Added FleetTest, FlightTest and PlaneTest
 
+	- Added FlightsTest
                                         - style.css
