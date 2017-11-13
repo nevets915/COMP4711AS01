@@ -8,10 +8,10 @@
 <span style="color: red">{errorMsg}</span>
 
 <tr class="table">
-    <form role="form" action="{selector2}" method="POST">
+    <form role="form" action="book2" method="POST">
     <h3>Stops</h3>
 
-    <h5>1st Flight</h5>
+    <h5>1st Flight</h5><span style="color: red">{errorMsg1}</span>
     <table>
         <tr style="background-color: #0e0e0e; color: #ffffff;">
             <th >
@@ -48,13 +48,13 @@
                 {ArrivalTime}
             </td>
             <td>
-                <input type='checkbox' name='plane1{id}' />
+                <input type='radio' name='1' value="{id}" />
             </td>
         </tr>
         {/flight1}
     </table>
 
-    <h5>2nd Flight</h5>
+    <h5>2nd Flight</h5><span style="color: red">{errorMsg2}</span>
     <table>
 
         <tr style="background-color: #0e0e0e; color: #ffffff;">
@@ -92,13 +92,13 @@
                 {ArrivalTime}
             </td>
             <td>
-                <input type='checkbox' name='plane2{id}' />
+                <input type='radio' name='2' value="{id}" />
             </td>
         </tr>
         {/flight2}
     </table>
 
-    <h5>3rd Flight</h5>
+    <h5>3rd Flight</h5><span style="color: red">{errorMsg3}</span>
     <table>
         <tr style="background-color: #0e0e0e; color: #ffffff;">
             <th >
@@ -135,7 +135,7 @@
                 {ArrivalTime}
             </td>
             <td>
-                <input type='checkbox' name='plane3{id}' />
+                <input type='radio' name='3' value="{id}" />
             </td>
         </tr>
         {/flight3}

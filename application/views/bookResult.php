@@ -2,7 +2,6 @@
 
 <p>Departure: {selectedDeparture}</p>
 <p>Arrival: {selectedArrival}</p>
-<span style="color: red">{errorMsg}</span>
 
 <table>
     <tr style="background-color: #0e0e0e; color: #ffffff;">
