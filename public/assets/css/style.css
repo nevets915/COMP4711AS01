@@ -117,6 +117,7 @@ h4 {
 p {
 	padding-bottom:18px
 }
+
 /* header */
 header {
 	height:230px;
@@ -204,7 +205,8 @@ header {
 #content {
 	width:100%;
 	overflow:hidden;
-	padding-bottom:14px
+	padding-bottom:14px;
+        min-height: 600px;
 }
 .for_banners {
 	background:url(../images/bg_top_img.jpg) 0 0 no-repeat;
