@@ -109,18 +109,24 @@ Release Date: 11.09.17
         - fleet
         - plane
         - flights
+        - bookResult
+        - bookTemplate
+        - bookTemplate2
 
 ##### Updated Components
     - controllers
         - Roles added
+        - Welcome
     - model
         - Fleet(renamed)
         - Airline(renamed)
         - Airplane(renamed)
         - Airport(renamed)
         - Region(renamed)
+        - flight_models
     - views
         - fleetadd added
+        - homepage
 	- flightadd added
     - Other
 	- Added session and parsedown to autoload libraries
@@ -129,37 +135,5 @@ Release Date: 11.09.17
 	- Changed Travis.yml to php 5.6.  Problems with unit testing for 7.1
 	- Added FleetTest, FlightTest and PlaneTest
 
-### Version 2.0.0 - SK
-Release Date: 11.10.17
-
-#### New Components
-    - controllers
-        - Added user role switching
-    - models
-        - Added Wacky model to access server data
-    - public
-        - assets
-            - css
-                - added bootstrap
-            - images
-                - new site logo
-    - others
-        - Added unit testing
-        - Added travis integration
-        - Added session state
 	- Added FlightsTest
-
-##### Updated Components
-    - controllers
-        - Welcome.php
-    - models
-        - Fleet_model and Flights_model changed to CSV model
-    - views
-        - homepage.php
-        - template.php
-        - fleet.php
-        - fleetedit.php
-    - public
-            - assets
-                - css
-                    - style.css
+                                        - style.css
