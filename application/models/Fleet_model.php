@@ -12,10 +12,18 @@ class Fleet_Model extends CSV_Model
         parent::__construct(APPPATH . '../data/fleet.csv', 'id');        
     }
     
+    public function count()
+    {
+        $results = 0;
+            foreach ($this->_data as $key => $record)
+                $results++;
+            return $results;
+    }
+
     /*
      * Returns a list of plane ids from the csv file
      */
-    function planeIds()
+    public function planeIds()
     {
             $results = array();
             foreach ($this->_data as $key => $record)

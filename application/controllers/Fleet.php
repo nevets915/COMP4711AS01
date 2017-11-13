@@ -153,7 +153,9 @@ class Fleet extends Application
             {
                 if (empty($flight->id))
                 {
-                    $flight->id = $this->fleet_model->highest() + 1;
+                    $num = $this->fleet_model->count() + 1;
+                    $id =  sprintf("BB%03d", $num);
+                    $flight->id = $id;
                     $this->fleet_model->add($flight);
                     $this->alert('Flight ' . $flight->id . ' added', 'success');
                 } else
