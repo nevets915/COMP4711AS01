@@ -273,14 +273,11 @@
                 <th>
                     Arr. Time
                 </th>
-                <th>
-                    Arr. Time
-                </th>
             </tr>
             {flight}
             <tr>
                 <td style="text-align: left;" class="pad_left1">
-                    {PlaneID}
+                    {PlaneId}
                 </td>
                 <td>
                     {DepartureAirport}
@@ -290,9 +287,6 @@
                 </td>
                 <td>
                     {DepartureTime}
-                </td>
-                <td>
-                    {ArrivalTime}
                 </td>
                 <td>
                     {ArrivalTime}

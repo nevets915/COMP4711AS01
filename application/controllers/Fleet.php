@@ -38,7 +38,7 @@ class Fleet extends Application
 
             // build the list of authors, to pass on to our view
             $source = $this->fleet_model->all();
-
+            
             // pass on the data to present, as the "authors" view parameter
             $this->data['fleet'] = $source;
 
@@ -50,16 +50,24 @@ class Fleet extends Application
          */
         public function show($key)
         {
-            // this is the view we want shown
-            $this->data['pagebody'] = 'plane';
+            $role = $this->session->userdata('userrole');
+            if ($role == ROLE_ADMIN)
+            {
+                $this->edit($key);
+            }
+            else
+            {
+                // this is the view we want shown
+                $this->data['pagebody'] = 'plane';
 
-            // build the list of authors, to pass on to our view
-            $source = $this->fleet_model->get($key);
+                // build the list of authors, to pass on to our view
+                $source = $this->fleet_model->get($key);
 
-            // pass on the data to present, as the "authors" view parameter
-            $this->data = array_merge($this->data, (array) $source);
+                // pass on the data to present, as the "authors" view parameter
+                $this->data = array_merge($this->data, (array) $source);
 
-            $this->render();
+                $this->render();
+            }
         }
         
         // Extract & handle a page of items, defaulting to the beginning
@@ -68,19 +76,19 @@ class Fleet extends Application
             $role = $this->session->userdata('userrole');
             if ($role == ROLE_ADMIN) 
             {
-                $this->data['pagination'] = $this->parser->parse('fleetadd',[], true);
+                $this->data['add'] = $this->parser->parse('fleetadd',[], true);
             }
             else
             {
-                $this->data['pagination'] = "";
+                $this->data['add'] = "";
             }
 
         }
         
         public function add()
         {
-            $fleet = $this->fleet_model->create();
-            $this->session->set_userdata('fleet', $fleet);
+            $flight = $this->fleet_model->create();
+            $this->session->set_userdata('flight', $flight);
             $this->showit();        
         }
         
@@ -88,8 +96,8 @@ class Fleet extends Application
         {
             if ($id == null)
                 redirect('/fleet');
-            $fleet = $this->tasks->get($id);
-            $this->session->set_userdata('fleet', $fleet);
+            $flight = $this->fleet_model->get($id);
+            $this->session->set_userdata('flight', $flight);
             $this->showit();
         }
            
@@ -97,27 +105,29 @@ class Fleet extends Application
         {
             $submitButtonLabel = 'Update fleet';
             $this->load->helper('form');
-            $fleet = $this->session->userdata('fleet');
-            $this->data['id'] = $fleet->id;
+            $flight = $this->session->userdata('flight');
+            $this->data['id'] = $flight->id;
 
             // if no errors, pass an empty message
             if ( ! isset($this->data['error']))
                 $this->data['error'] = '';
 
             // Check to see if its new or editing
-            if (empty($fleet->id))
+            if (empty($flight->id))
             {
                 $submitButtonLabel = 'Create new plane';
             }
 
             $fields = array(
-                'fmanufacturer'  => form_label('Manufacturer') . form_input('Manufacturer', $fleet->Manufacturer),
-                'fmodel'  => form_label('Model') . form_input('Model', $fleet->Model),
-                'fseats'  => form_label('Seats') . form_input('Seats', $fleet->Seats),
-                'freach'  => form_label('Reach') . form_input('Reach', $fleet->Reach),
-                'fcruise'  => form_label('Cruise') . form_input('Cruise', $fleet->Cruise),
-                'ftakeoff'  => form_label('Takeoff') . form_input('Takeoff', $fleet->Takeoff),
-                'fhourly'  => form_label('Hourly') . form_input('Hourly', $fleet->Hourly),
+                'hid'  => form_hidden('id', $flight->id),
+                'fmanufacturer'  => form_label('Manufacturer') . form_dropdown('Manufacturer', $this->wacky->manufacturers(), $flight->Manufacturer),
+                'fmodel'  => form_label('Model') . form_dropdown('Model', $this->wacky->models(), $flight->Model),
+                'fprice'  => form_label('Price') . form_input('Price', $flight->Price),
+                'fseats'  => form_label('Seats') . form_input('Seats', $flight->Seats),
+                'freach'  => form_label('Reach') . form_input('Reach', $flight->Reach),
+                'fcruise'  => form_label('Cruise') . form_input('Cruise', $flight->Cruise),
+                'ftakeoff'  => form_label('Takeoff') . form_input('Takeoff', $flight->Takeoff),
+                'fhourly'  => form_label('Hourly') . form_input('Hourly', $flight->Hourly),                
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
             );
             $this->data = array_merge($this->data, $fields);
@@ -129,28 +139,40 @@ class Fleet extends Application
         // handle form submission
         public function submit()
         {
+            // setup for validation
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->fleet_model->rules());
 
             // retrieve & update data transfer buffer
-            $fleet = (array) $this->session->userdata('fleet');
-            $fleet = array_merge($fleet, $this->input->post());
-            unset($fleet['submit']);
-            $fleet = (object) $fleet;  // convert back to object
-            $this->session->set_userdata('fleet', (object) $fleet);
+            $flight = (array) $this->session->userdata('flight');
+            $flight = array_merge($flight, $this->input->post());
+            unset($flight['submit']);
+            $flight = (object) $flight;  // convert back to object
+            $this->session->set_userdata('flight', (object) $flight);
 
-            if (empty($fleet->id))
+            // validate away
+            if ($this->form_validation->run())
             {
-                $fleet->id = $this->fleet_model->highest() + 1;
-                $this->fleet_model->add($fleet);
-                $this->alert('Fleet ' . $fleet->id . ' added', 'success');
-            } else
+                if (empty($flight->id))
+                {
+                    $num = $this->fleet_model->count() + 1;
+                    $id =  sprintf("BB%03d", $num);
+                    $flight->id = $id;
+                    $this->fleet_model->add($flight);
+                    $this->alert('Flight ' . $flight->id . ' added', 'success');
+                } 
+                else
+                {
+                    $this->fleet_model->update($flight);
+                    $this->alert('Flight ' . $flight->id . ' updated', 'success');
+                }
+
+                $this->showit();
+            }else
             {
-                $this->fleet_model->update($fleet);
-                $this->alert('Fleet ' . $fleet->id . ' updated', 'success');
+                $this->alert('<strong>Validation errors!<strong><br>' . validation_errors(), 'danger');
             }
-               
-            $this->showit();
         }
-        
         
         // build a suitable error mesage
         private function alert($message) {
@@ -160,17 +182,17 @@ class Fleet extends Application
 
         // Forget about this edit
         function cancel() {
-            $this->session->unset_userdata('fleet');
+            $this->session->unset_userdata('flight');
             redirect('/fleet');
         }
 
         // Delete this item altogether
         function delete()
         {
-            $dto = $this->session->userdata('fleet');
+            $dto = $this->session->userdata('flight');
             $task = $this->tasks->get($dto->id);
             $this->tasks->delete($task->id);
-            $this->session->unset_userdata('fleet');
+            $this->session->unset_userdata('flight');
             redirect('/fleet');
         }
 }

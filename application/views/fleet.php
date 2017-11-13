@@ -18,4 +18,6 @@
         </tbody>
     </table>
 </div>
-{pagination}
+<br/>
+<br/>
+{add}

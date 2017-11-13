@@ -18,11 +18,6 @@ if (!defined('APPPATH'))
     <title>AirLines</title>
     <meta charset="utf-8">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="all">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="all">
-    <link rel="stylesheet" href="assets/css/layout.css" type="text/css" media="all">
-
     <!--    bootstrap 3-->
     <script src="assets/js/bootstrap.min.js"></script>
 
@@ -66,7 +61,7 @@ if (!defined('APPPATH'))
       <ul id="menu">
         <li id="menu_active"><a href="/"><span><span>Home</span></span></a></li>
         <li><a href="/flights"><span><span>Flights</span></span></a></li>
-        <li class="end"><a href="/fleet"><span><span>Fleets</span></span></a></li>
+        <li class="end"><a href="/fleet"><span><span>Fleet</span></span></a></li>
         <li><a href="/roles/actor/Guest"><span><span>Guest</span></span></a></li>
         <li><a href="/roles/actor/Admin"><span><span>Admin</span></span></a></li>
       </ul>

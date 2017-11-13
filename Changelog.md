@@ -125,6 +125,7 @@ Release Date: 11.09.17
     - Other
 	- Added session and parsedown to autoload libraries
 	- Added Admin and Guest constants
+	- Bug fix for plane view Fleet controller
 
 ### Version 2.0.0 - SK
 Release Date: 11.10.17
