@@ -1,10 +1,11 @@
-<h3>book add</h3>
+<h3>Select Flight</h3>
 
 <p>Departure: {selectedDeparture}</p>
 <p>Arrival: {selectedArrival}</p>
 <span style="color: red">{errorMsg}</span>
 
 <tr class="table">
+    <form role="form" action="{selector1}" method="post">
     <table>
         <h3>Non-stop</h3>
         <tr style="background-color: #0e0e0e; color: #ffffff;">
@@ -41,42 +42,10 @@
             <td>
                 {ArrivalTime}
             </td>
+            <td>
+                <input type='submit' value='Select'/>
+            </td>
         </tr>
         {/flight}
     </table>
-
-    <br /><br /><br />
-    <table>
-        <h3>Stops</h3>
-        <tr>
-            <th>
-                Departure
-            </th>
-            <th>
-                Flight Dep
-            </th>
-            <th>
-                Destination 1
-            </th>
-            <th>
-                Flight Dest1
-            </th>
-            <th>
-                Destination 2
-            </th>
-            <th>
-                Flight Dest2
-            </th>
-
-        </tr>
-        {results}
-            <tr>
-                <td>{1d}</td>
-                <td>{1f}</td>
-                <td>{2d}</td>
-                <td>{2f}</td>
-                <td>{3d}</td>
-                <td>{3f}</td>
-            </tr>
-        {/results}
-    </table>
+    </form>

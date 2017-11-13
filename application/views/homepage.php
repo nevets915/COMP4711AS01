@@ -135,6 +135,7 @@
 
     <div class="col">
         <h3>Booking</h3>
+        <h4>One-Stop</h4>
         <form role="form" action="/welcome/submit" method="post">
         <table>
             <tr>
@@ -155,6 +156,29 @@
                 </td>
             </tr>
         </table>
+        </form>
+
+        <h4>MultiStop</h4>
+        <form role="form" action="/welcome/submit2" method="post">
+            <table>
+                <tr>
+                    <td>
+                        {fDepAirport1}
+                    </td>
+                    <td>
+                        {fArrAirport1}
+                    </td>
+                    <td>
+                        {fArrAirport2}
+                    </td>
+                    <td>
+                        {fArrAirport3}
+                    </td>
+                    <td>
+                        {fBookSubmit2}
+                    </td>
+                </tr>
+            </table>
         </form>
     </div>
 </div>
