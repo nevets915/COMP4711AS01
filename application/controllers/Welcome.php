@@ -145,7 +145,6 @@ class Welcome extends Application {
         $results = array();
 
         if($departure != $arrival){
-            //non-stop
             foreach($flights as $flight){
                 if($flight->DepartureAirport == $departure
                 && $flight->ArrivalAirport == $arrival){
@@ -166,32 +165,58 @@ class Welcome extends Application {
         $this->render();
     }
 
+    function book1(){
+        $this->load->library('session');
+
+        $id= $this->input->post('id');
+
+        $flights = $this -> flights_model -> all();
+
+        //find flight by id
+        foreach ($flights as $flight){
+            if($flight -> id == $id){
+                $result = $flight;
+                break;
+            }
+        }
+
+        $converted[] = (array) $result;
+        $this->data['errorMsg'] = '';
+        $this->data['selectedDeparture'] = $flight-> DepartureAirport;
+        $this->data['selectedArrival'] = $flight-> ArrivalAirport;
+        $this->data['flight'] = $converted;
+        $this->data['pagebody'] = 'bookResult';
+        $this->data['resultTitle'] = 'Book Successful';
+
+        $this->render();
+    }
+
+
     function submit2(){
         $this->load->helper('form');
 
         $flights = $this->flights_model->all();
-
-        $isFound = FALSE;
 
         $departure = $this->input->post('DepartureAirport');
         $arrival1   = $this->input->post('ArrivalAirport1');
         $arrival2   = $this->input->post('ArrivalAirport2');
         $arrival3   = $this->input->post('ArrivalAirport3');
 
-        $departureID = $this->getAirportID($departure);
-        $arrivalID = $this->getAirportID($arrival1);
-
         $this->data['selectedDeparture'] = $departure;
         $this->data['selectedArrival1'] = $arrival1;
         $this->data['selectedArrival2'] = $arrival2;
         $this->data['selectedArrival3'] = $arrival3;
+        $results1 = array();
+        $results2 = array();
+        $results3 = array();
 
         if($departure == $arrival1
         || $arrival1 == $arrival2
         || $arrival2 == $arrival3){
             $this->data['errorMsg'] = "Can't go from same place to same place";
-            $this->data['select'] = '';
         } else {
+
+            //searching flights
             foreach($flights as $flight){
                 //for first flight
                 if($flight->DepartureAirport == $departure
@@ -215,108 +240,86 @@ class Welcome extends Application {
                 }
             } //end of foreach
 
+            //warns
             if(!empty($results1)) {
-                $this->data['flight1'] = $results1;
                 $this->data['errorMsg1'] = '';
             } else {
                 $this->data['errorMsg1'] = 'can not find a flight';
-                $this->data['flight1'][] = array(
-                    'PlaneID'=> 'none',
-                    'DepartureAirport'=> 'none',
-                    'ArrivalAirport'=> 'none',
-                    'DepartureTime'=> 'none',
-                    'ArrivalTime'=> 'none',
-                    'select'=> 'none');
             }
 
             if(!empty($results2)){
-                $this->data['flight2'] = $results2;
                 $this->data['errorMsg2'] = '';
             } else {
                 $this->data['errorMsg2'] = 'can not find a flight';
-                $this->data['flight2'][] = array(
-                            'PlaneID'=> 'none',
-                            'DepartureAirport'=> 'none',
-                            'ArrivalAirport'=> 'none',
-                            'DepartureTime'=> 'none',
-                            'ArrivalTime'=> 'none',
-                            'select'=> 'none');
             }
 
             if(!empty($results3)){
-                $this->data['flight3'] = $results3;
                 $this->data['errorMsg3'] = '';
-
+            } else if($arrival3 == 'None'){
+                $this->data['errorMsg3'] = '';
             } else {
                 $this->data['errorMsg3'] = 'can not find a flight';
-                $this->data['flight3'][] = array(
-                            'PlaneID'=> 'none',
-                            'DepartureAirport'=> 'none',
-                            'ArrivalAirport'=> 'none',
-                            'DepartureTime'=> 'none',
-                            'ArrivalTime'=> 'none',
-                            'select'=> 'none');
             }
 
             $this->data['errorMsg'] = '';
             $this->data['select'] = 'C';
         }
 
+        $this->data['flight1'] = $results1;
+        $this->data['flight2'] = $results2;
+        $this->data['flight3'] = $results3;
+
 
         $this->data['pagebody'] = 'bookTemplate2';
         $this->render();
     }
 
-    function book1(){
-        $id= $this->input->post('id');
-
-        $flights = $this -> flights_model -> all();
-
-        //find flight by id
-        foreach ($flights as $flight){
-            if($flight -> id == $id){
-                $result = $flight;
-                break;
-            }
-        }
-
-        $converted[] = (array) $result;
-
-        $this->data['selectedDeparture'] = $flight-> DepartureAirport;
-        $this->data['selectedArrival'] = $flight-> ArrivalAirport;
-        $this->data['flight'] = $converted;
-        $this->data['pagebody'] = 'bookResult';
-        $this->render();
-    }
 
 
     function book2(){
+        $this->load->library('session');
+
         $ids = $this -> input -> post();
         $flights = $this -> flights_model -> all();
-
         $result = array();
 
-        foreach ($flights as $flight){
-            if($flight -> id == $ids['1']){
-                $result[0] = $flight;
+        if(!empty($ids['1'])
+        &&!empty($ids['2'])){
+
+            foreach ($flights as $flight){
+                if(!empty($ids['1'])
+                    && $flight -> id == $ids['1']){
+                    $result[0] = $flight;
+                }
+
+                if(!empty($ids['2'])
+                    && $flight -> id == $ids['2']){
+                    $result[1] = $flight;
+                }
+
+                if(!empty($ids['3'])
+                    && $flight -> id == $ids['3']){
+                    $result[2] = $flight;
+                }
             }
 
-            if($flight -> id == $ids['2']){
-                $result[1] = $flight;
-            }
+            ksort($result);
 
-            if($flight -> id == $ids['3']){
-                $result[2] = $flight;
-            }
+            $this->data['selectedDeparture'] = $result[0]->DepartureAirport;
+            $this->data['selectedArrival'] = $result[count($ids)-1]->ArrivalAirport;
+            $this->data['errorMsg'] = '';
+            $this->data['resultTitle'] = 'Book Successful';
+
+        } else {
+            $this->data['selectedDeparture'] = '';
+            $this->data['selectedArrival'] = '';
+            $this->data['errorMsg'] = 'some flight is not selected please retry';
+            $this->data['resultTitle'] = 'Book Failed';
         }
-
-        ksort($result);
-
-        $this->data['selectedDeparture'] = $result[0]->DepartureAirport;
-        $this->data['selectedArrival'] = $result[count($ids)-1]->ArrivalAirport;
 
         $this->data['flight'] = $result;
         $this->data['pagebody'] = 'bookResult';
+
         $this->render();
     }
 

@@ -1,7 +1,8 @@
-<h3>Successfully booked</h3>
+<h3>{resultTitle}</h3>
 
 <p>Departure: {selectedDeparture}</p>
-<p>Arrival: {selectedArrival}</p>
+<p>Final Arrival: {selectedArrival}</p>
+<span style="color: red">{errorMsg}</span>
 
 <table>
     <tr style="background-color: #0e0e0e; color: #ffffff;">
