@@ -5,8 +5,10 @@
 <br />
 <br />
 <form role="form" action="/fleet/submit" method="post">
+    {hid}    
     {fmanufacturer}
     {fmodel}
+    {fprice}
     {fseats}
     {freach}
     {fcruise}
