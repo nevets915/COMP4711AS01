@@ -1,3 +1,3 @@
-id,Manufacturer,Model,Price,Seats,Reach,Cruise,Takeoff,Hourly
+id,manufacturer,model,price,seats,reach,cruise,takeoff,hourly
 BB001,Piaggo,"Avanti II",7195,8,2797,589,994,977
 BB002,Cessna,"Grand Caravan EX",2300,14,1689,340,660,389
