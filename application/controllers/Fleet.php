@@ -120,14 +120,14 @@ class Fleet extends Application
 
             $fields = array(
                 'hid'  => form_hidden('id', $flight->id),
-                'fmanufacturer'  => form_label('Manufacturer') . form_dropdown('manufacturer', $this->wacky->manufacturers(), $flight->Manufacturer),
-                'fmodel'  => form_label('Model') . form_dropdown('model', $this->wacky->models(), $flight->Model),
-                'fprice'  => form_label('Price') . form_input('price', $flight->Price),
-                'fseats'  => form_label('Seats') . form_input('seats', $flight->Seats),
-                'freach'  => form_label('Reach') . form_input('reach', $flight->Reach),
-                'fcruise'  => form_label('Cruise') . form_input('cruise', $flight->Cruise),
-                'ftakeoff'  => form_label('Takeoff') . form_input('takeoff', $flight->Takeoff),
-                'fhourly'  => form_label('Hourly') . form_input('hourly', $flight->Hourly),                
+                'fmanufacturer'  => form_label('Manufacturer') . form_dropdown('manufacturer', $this->wacky->manufacturers(), $flight->manufacturer),
+                'fmodel'  => form_label('Model') . form_dropdown('model', $this->wacky->models(), $flight->model),
+                'fprice'  => form_label('Price') . form_input('price', $flight->price),
+                'fseats'  => form_label('Seats') . form_input('seats', $flight->seats),
+                'freach'  => form_label('Reach') . form_input('reach', $flight->reach),
+                'fcruise'  => form_label('Cruise') . form_input('cruise', $flight->cruise),
+                'ftakeoff'  => form_label('Takeoff') . form_input('takeoff', $flight->takeoff),
+                'fhourly'  => form_label('Hourly') . form_input('hourly', $flight->hourly),                
                 'zsubmit'    => form_submit('submit', $submitButtonLabel),
             );
             $this->data = array_merge($this->data, $fields);
